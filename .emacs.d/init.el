@@ -51,9 +51,9 @@
 (column-number-mode 1)
 (transient-mark-mode t)
 (global-linum-mode 1)
-(setq indent-tabs-mode nil)
-(setq tab-width 2)
-(setq show-trailing-whitespace t)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq-default show-trailing-whitespace t)
 
 (global-set-key [(f9)] 'compile)
 (global-set-key [(control tab)] 'dabbrev-expand)
