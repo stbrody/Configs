@@ -54,7 +54,9 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (setq-default show-trailing-whitespace t)
-(setq-default make-backup-files nil)
+(setq-default make-backup-files t)
+(setq-default version-control t)
+(setq-default backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
 
 (global-set-key [(f9)] 'compile)
 (global-set-key [(control tab)] 'dabbrev-expand)
