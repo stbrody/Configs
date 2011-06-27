@@ -1,0 +1,24 @@
+startup_message off
+
+hardstatus alwayslastline
+#hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR} (%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}] {=b C}[ %m/%d %c ]%{W}'
+hardstatus string "%{= kG}[%{G}$USER@%H%{g}][%{w}%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{w}%D %d %M %Y %c:%s%{-}]"
+
+defscrollback 100000
+deflogin off
+
+termcapinfo xterm ti@:te@ #scrollbar
+
+escape ``                 # Make ` (backtick) the default command key
+
+
+# page up and page down
+#bindkey -m -k kP stuff Y
+#bindkey -m -k kN stuff V
+
+# control arrows move by words. (set B, e, and w to F keys so that i
+# can use them to move by words, but they themselves still quit copy
+# mode.)
+markkeys B=[:E=]:b={:e=}:w=>
+bindkey -m ^[Od stuff {  #"[[}"
+bindkey -m ^[Oc stuff ]  #"}]^f"
