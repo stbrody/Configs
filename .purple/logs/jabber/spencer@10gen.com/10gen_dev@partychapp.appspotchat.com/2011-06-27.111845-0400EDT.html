@@ -1,0 +1,59 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Conversation with 10gen_dev@partychapp.appspotchat.com at Mon 27 Jun 2011 11:18:45 AM EDT on spencer@10gen.com/ (jabber)</title></head><body><h3>Conversation with 10gen_dev@partychapp.appspotchat.com at Mon 27 Jun 2011 11:18:45 AM EDT on spencer@10gen.com/ (jabber)</h3>
+<font color="#A82F2F"><font size="2">(11:18:45 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [brendan] anyone recommend any particular talk in scratch as a good, recent &quot;intro to MongodB&quot; talk?<br/>
+<font color="#A82F2F"><font size="2">(11:19:26 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [cwestin] i just put one there that i did on wednesday of last week<br/>
+<font color="#A82F2F"><font size="2">(11:20:11 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [brendan] i wanted a GOOD talk chris, but thanks for the thought :P<br/>
+<font color="#A82F2F"><font size="2">(11:20:11 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [brendan] no, i'll take al ook thansk<br/>
+<font color="#A82F2F"><font size="2">(11:20:21 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [cwestin] it has a lot of additional material at the beginning by request of the organizer:  they thought most of their audience wouldn't be familiar with the NoSQL space at all, and wanted some introduction to that in order to understand where mongo fits, so I added material on data models and consistency models<br/>
+<font color="#A82F2F"><font size="2">(11:20:28 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [cwestin] that's fine, you're on your own<br/>
+<font color="#A82F2F"><font size="2">(11:20:49 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [brendan] scottish weddings do neither the liver, legs nor head much good<br/>
+<font color="#A82F2F"><font size="2">(11:20:53 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [brendan] and apparetly i'm talking first :)<br/>
+<font color="#A82F2F"><font size="2">(11:21:08 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [cwestin] but if you do decide to use it, i can answer questions later, i'm about to talk at mongodc myself<br/>
+<font color="#A82F2F"><font size="2">(11:23:08 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [brendan] oh cool<br/>
+<font color="#A82F2F"><font size="2">(11:23:08 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [brendan] good luck<br/>
+<font color="#A82F2F"><font size="2">(11:38:38 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [brendan] this is a good talk chris thanks…. I may pilfer it<br/>
+<font color="#A82F2F"><font size="2">(11:54:01 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] anybody here a VirtualBox expert?<br/>
+<font color="#A82F2F"><font size="2">(11:54:16 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] ive done a decent amount with it<br/>
+<font color="#A82F2F"><font size="2">(11:55:30 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] I've got a couple of VMs that are in a &quot;Saved&quot; state, that I can't seem to launch because the USB 2.0 extension isn't present.  the error box says I should disable USB 2.0 in the VM's settings, but the settings dialog isn't available for the VMs in the saved state.  am I wedged?<br/>
+<font color="#A82F2F"><font size="2">(11:56:46 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dcrosta] there's probably a way — probably from the command line tool — to harshly shut it down, so that you can restart from a not-saved state<br/>
+<font color="#A82F2F"><font size="2">(11:57:04 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] the VMs aren't running.<br/>
+<font color="#A82F2F"><font size="2">(11:57:08 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] you cant kill the saved state<br/>
+<font color="#A82F2F"><font size="2">(11:57:09 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] *can<br/>
+<font color="#A82F2F"><font size="2">(11:57:21 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] you can?<br/>
+<font color="#A82F2F"><font size="2">(11:57:21 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] yeah<br/>
+<font color="#A82F2F"><font size="2">(11:57:21 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dcrosta] VBoxManage controlvm &lt;vmname&gt; reset<br/>
+<font color="#A82F2F"><font size="2">(11:57:21 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] at the top<br/>
+<font color="#A82F2F"><font size="2">(11:57:21 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] discard<br/>
+<font color="#A82F2F"><font size="2">(11:57:22 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dcrosta] http://www.virtualbox.org/manual/ch08.html#vboxmanage-controlvm<br/>
+<font color="#A82F2F"><font size="2">(11:57:40 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] i thought your goal was to fix it without ditching your saved state<br/>
+<font color="#A82F2F"><font size="2">(11:57:51 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] I don't care about the saved state, I just need to be able to boot them again.<br/>
+<font color="#A82F2F"><font size="2">(11:58:17 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] highlight the machine and there is an orange down arrow at the top labelled discard<br/>
+<font color="#A82F2F"><font size="2">(11:58:24 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] that should do it<br/>
+<font color="#A82F2F"><font size="2">(11:58:34 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] oh.  I thought that meant discard the VM.<br/>
+<font color="#A82F2F"><font size="2">(11:59:47 AM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] nope. should just remove the saved state as though you did a hard shutdown<br/>
+<font color="#A82F2F"><font size="2">(12:02:29 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] VBoxManage: error: Invalid machine state: Saved<br/>
+<font color="#A82F2F"><font size="2">(12:02:50 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dcrosta] maybe try &quot;poweroff&quot;?<br/>
+<font color="#A82F2F"><font size="2">(12:04:23 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] &quot;discard&quot; seems to have done it.<br/>
+<font color="#A82F2F"><font size="2">(12:04:27 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] maybe<br/>
+<font color="#A82F2F"><font size="2">(12:50:10 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] does the shell not recognize the &lt;rsname&gt;/&lt;seedlist&gt; url syntax for connection specs?<br/>
+<font color="#A82F2F"><font size="2">(12:50:30 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [k.chodorow] it does not<br/>
+<font color="#A82F2F"><font size="2">(12:50:55 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] hrm.  because of the old &lt;hostname&gt;/&lt;dbname&gt; interpretation?<br/>
+<font color="#A82F2F"><font size="2">(12:51:40 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [k.chodorow] i think more because no one's ever bothered to implement it<br/>
+<font color="#A82F2F"><font size="2">(12:51:40 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [richard] ok<br/>
+<font color="#A82F2F"><font size="2">(03:06:51 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dcrosta] is there a shortcut/helper to get to the timestamp in an ObjectId in the mongo shell?<br/>
+<font color="#A82F2F"><font size="2">(03:08:33 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [dannenberg] .getTimestamp()<br/>
+<font color="#A82F2F"><font size="2">(03:21:00 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [jared] geo question.. customer doing a $box query on a big data set.. but they seem to never get back more than 48210 results (even tho there are more than that number of objects that should match the query)<br/>
+<font color="#A82F2F"><font size="2">(03:21:15 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [jared] they have multiple queries over different regions, they all return 48210 results<br/>
+<font color="#A82F2F"><font size="2">(03:21:28 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [jared] doing a single x,y range query returns different amounts<br/>
+<font color="#A82F2F"><font size="2">(03:24:11 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [jared] is there something special about this number 48210?<br/>
+<font color="#A82F2F"><font size="2">(03:26:01 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [greg] have they set a limit?<br/>
+<font color="#A82F2F"><font size="2">(03:26:15 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [jared] no<br/>
+<font color="#A82F2F"><font size="2">(03:26:39 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [greg] is this SERVER-1648<br/>
+<font color="#A82F2F"><font size="2">(03:26:45 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [greg] just responded<br/>
+<font color="#A82F2F"><font size="2">(03:27:00 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [greg] first thing we need from them is to run the same queries in the shell<br/>
+<font color="#A82F2F"><font size="2">(03:27:06 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [greg] so we can narrow down where the issue is<br/>
+<font color="#A82F2F"><font size="2">(04:03:26 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [eliothorowitz] 48210 is probabyl what fits in 1 or 4mb<br/>
+<font color="#A82F2F"><font size="2">(04:03:26 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [eliothorowitz] can't remember which for this case<br/>
+<font color="#A82F2F"><font size="2">(04:03:47 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [eliothorowitz] sine we don't use cursors for geo<br/>
+<font color="#A82F2F"><font size="2">(04:03:51 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [brendan] several germans asked me if we are planning to ad support for coffeescript in the shell and map/reuce<br/>
+<font color="#A82F2F"><font size="2">(04:03:58 PM)</font> <b>10gen_dev@partychapp.appspotchat.com:</b></font> [brendan] i may or may not have left a trail of dead bodies behind me<br/>
+</body></html>

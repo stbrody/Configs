@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=(.bash_aliases .bashrc .emacs.d .environment .git-completion.bash .gitconfig .profile .screenrc)
+files=(.bash_aliases .bashrc .emacs.d .environment .git-completion.bash .gitconfig .profile .purple .screenrc )
 
 for filename in ${files[@]}
 do
