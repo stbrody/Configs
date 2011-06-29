@@ -7,7 +7,8 @@ hardstatus string "%{= kG}[%{G}$USER@%H%{g}][%{w}%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f
 defscrollback 100000
 deflogin off
 
-termcapinfo xterm ti@:te@ #scrollbar
+#Make scrollwheel work
+termcapinfo * ti@:te@
 
 escape ``                 # Make ` (backtick) the default command key
 
