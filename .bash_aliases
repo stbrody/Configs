@@ -1,5 +1,6 @@
-alias em='emacs -nw'
 alias rm='rm -i'
+alias cp='cp -i'
+alias em='emacs -nw'
 alias open='gnome-open'
 
 # enable color support of ls and also add handy aliases
