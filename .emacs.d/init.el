@@ -57,6 +57,7 @@
 (setq-default make-backup-files t)
 (setq-default version-control t)
 (setq-default backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
+(setq-default delete-old-versions t)
 (setq-default scroll-conservatively 1)
 
 (global-set-key [(f9)] 'compile)
