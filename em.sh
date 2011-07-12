@@ -1,2 +1,2 @@
 #!/bin/bash
-emacs -nw $1
+emacs -nw $@

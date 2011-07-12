@@ -1,2 +1,2 @@
-export EDITOR='em'
+export EDITOR=em
 export LESS='-M'
