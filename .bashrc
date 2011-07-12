@@ -51,8 +51,12 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-
-_CORES=$(grep -c processor /proc/cpuinfo )
+# Set the number of threads for scons to use from the number of cores on the machine
+if [[ $(uname) == 'Linux' ]]; then
+    _CORES=$(grep -c processor /proc/cpuinfo )
+else
+    _CORES=$(sysctl hw.ncpu | awk '{print $2}')
+fi
 _COMPILE_THREADS=$(echo $_CORES '* 3 / 2' | bc)
 
 export SCONSFLAGS="-j$_COMPILE_THREADS"
