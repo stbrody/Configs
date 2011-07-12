@@ -23,3 +23,9 @@ do
 done
 
 
+if [ ! -e $HOME/bin ]; then
+    mkdir $HOME/bin
+fi
+if [[ ! (-L $HOME/bin/em && $(readlink $HOME/bin/em) == $HOME/.configs/em.sh) ]]; then
+    ln -s $HOME/.configs/em.sh $HOME/bin/em
+fi

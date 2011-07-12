@@ -46,6 +46,12 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+
 _CORES=$(grep -c processor /proc/cpuinfo )
 _COMPILE_THREADS=$(echo $_CORES '* 3 / 2' | bc)
 

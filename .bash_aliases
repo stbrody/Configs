@@ -1,6 +1,5 @@
 alias rm='rm -i'
 alias cp='cp -i'
-alias em='emacs -nw'
 alias open='gnome-open'
 alias genmongotags="cd ~/mongo; find bson client db s shell tools util  -regex \".*\\.[cChH]\\(pp\\)?\" | etags -; cd - > /dev/null"
 

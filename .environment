@@ -1,2 +1,2 @@
-export EDITOR='emacs -nw'
+export EDITOR='em'
 export LESS='-M'
