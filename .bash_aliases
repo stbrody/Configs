@@ -1,6 +1,8 @@
 alias rm='rm -i'
 alias cp='cp -i'
-alias open='gnome-open'
+if [[ $(uname) == 'Linux' ]]; then
+    alias open='gnome-open'
+fi
 alias genmongotags="cd ~/mongo; find bson client db s shell tools util  -regex \".*\\.[cChH]\\(pp\\)?\" | etags -; cd - > /dev/null"
 
 # enable color support of ls and also add handy aliases
