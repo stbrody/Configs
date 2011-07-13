@@ -11,9 +11,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 if [[ $(uname) == 'Linux' ]]; then
-    alias ls='ls --color=auto -F'
+    alias ls='ls --color=auto -F -h'
 else
-    alias ls='ls -GF'
+    alias ls='ls -GFh'
 fi
 #alias dir='dir --color=auto'
 #alias vdir='vdir --color=auto'
