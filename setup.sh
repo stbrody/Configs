@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=(.bash_aliases .bashrc .emacs.d .environment .git-completion.bash .globalgitignore .mongorc.js .screenrc )
+FILES=(.bash_aliases .bashrc .emacs.d .environment .git-completion.bash .gitconfig .globalgitignore .mongorc.js .screenrc )
 
 for filename in ${FILES[@]}
 do
@@ -31,5 +31,5 @@ if [[ ! (-L $HOME/bin/em && $(readlink $HOME/bin/em) == $HOME/.configs/em.sh) ]]
 fi
 
 # Setup .gitconfig
-yes | cp gitconfig $HOME/.gitconfig
-cat github.gitconfig >> $HOME/.gitconfig
+yes | cp gitconfig .gitconfig
+cat github.gitconfig >> .gitconfig
