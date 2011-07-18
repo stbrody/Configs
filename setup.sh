@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=(.bash_aliases .bashrc .emacs.d .environment .git-completion.bash .gitconfig .globalgitignore .mongorc.js .screenrc )
+FILES=(.bash_aliases .bashrc .emacs.d .environment .git-completion.bash .globalgitignore .mongorc.js .screenrc )
 
 for filename in ${FILES[@]}
 do
@@ -22,10 +22,14 @@ do
     ln -s $dst $src
 done
 
-
+# Add em script to path
 if [ ! -e $HOME/bin ]; then
     mkdir $HOME/bin
 fi
 if [[ ! (-L $HOME/bin/em && $(readlink $HOME/bin/em) == $HOME/.configs/em.sh) ]]; then
     ln -s $HOME/.configs/em.sh $HOME/bin/em
 fi
+
+# Setup .gitconfig
+yes | cp gitconfig $HOME/.gitconfig
+cat github.gitconfig >> $HOME/.gitconfig

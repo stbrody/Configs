@@ -1,0 +1,21 @@
+[user]
+  name = Spencer T Brody
+  email = spencer@10gen.com
+
+[alias]
+  co = checkout
+  br = branch
+  st = status
+  cp = commit -a -m "cp"
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[branch]
+  autosetuprebase = always
+  autosetupmerge = true
+
+[core]
+  excludesfile = ~/.globalgitignore
