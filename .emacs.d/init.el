@@ -44,7 +44,36 @@
 (require 'xcscope)
 (setq cscope-display-cscope-buffer nil)
 
-;; Remove splash screen
+;; Setup CEDET
+(load-file "~/.emacs.d/elisp/cedet-1.0/common/cedet.el")
+(semantic-load-enable-code-helpers)
+(require 'semantic-ia)
+(require 'semantic-gcc)
+
+(global-ede-mode 1)
+(global-semantic-mru-bookmark-mode 1)
+
+(ede-cpp-root-project "mongo"
+		      :name "Mongo Project"
+		      :file "~/mongo/SConstruct"
+              :include-path '("/" "bson" "client" "db" "s" "shell" "tools" "util"))
+
+(ede-cpp-root-project "mongo2"
+		      :name "Mongo2 Project"
+		      :file "~/mongo2/SConstruct"
+              :include-path '("/" "bson" "client" "db" "s" "shell" "tools" "util"))
+
+
+(defun my-cedet-hook ()
+  (local-set-key "\M-/" 'semantic-ia-complete-symbol)
+  (local-set-key "\M-?" 'semantic-ia-complete-symbol-menu)
+  (local-set-key "\C-c=" 'semantic-analyze-proto-impl-toggle)
+  (local-set-key "\C-cj" 'semantic-ia-fast-jump)
+  (local-set-key "\C-cu" 'semantic-mrub-switch-tags))
+;  (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
+;  (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle))
+(add-hook 'c-mode-common-hook 'my-cedet-hook)
+
 (setq inhibit-splash-screen t)
 (show-paren-mode t)
 (line-number-mode 1)
@@ -61,7 +90,7 @@
 (setq-default scroll-conservatively 1)
 
 (global-set-key [(f9)] 'compile)
-(global-set-key [(control tab)] 'dabbrev-expand)
+;(global-set-key [(control tab)] 'dabbrev-expand)
 (global-set-key "\C-z" 'undo)
 
 (setq compilation-window-height 8)
