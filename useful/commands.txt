@@ -1,0 +1,5 @@
+# Show all current filesystems and their disk usage.
+df -h
+
+# See process virtual memory map
+pmap
