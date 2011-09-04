@@ -31,5 +31,7 @@ if [[ ! (-L $HOME/bin/em && $(readlink $HOME/bin/em) == $HOME/.configs/em.sh) ]]
 fi
 
 # Setup .gitconfig
-yes | cp gitconfig .gitconfig
-cat github.gitconfig >> .gitconfig
+yes | cp -f gitconfig .gitconfig
+if [[ -e github.gitconfig ]]; then
+	cat github.gitconfig >> .gitconfig
+fi
