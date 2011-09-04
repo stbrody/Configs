@@ -53,15 +53,17 @@
 (global-ede-mode 1)
 (global-semantic-mru-bookmark-mode 1)
 
-(ede-cpp-root-project "mongo"
-		      :name "Mongo Project"
-		      :file "~/mongo/SConstruct"
-              :include-path '("/" "bson" "client" "db" "s" "shell" "tools" "util"))
+(if (file-exists-p "~/mongo/SConstruct")
+    (ede-cpp-root-project "mongo"
+			  :name "Mongo Project"
+			  :file "~/mongo/SConstruct"
+			  :include-path '("/" "bson" "client" "db" "s" "shell" "tools" "util")))
 
-(ede-cpp-root-project "mongo2"
-		      :name "Mongo2 Project"
-		      :file "~/mongo2/SConstruct"
-              :include-path '("/" "bson" "client" "db" "s" "shell" "tools" "util"))
+(if (file-exists-p "~/mongo2/SConstruct")
+    (ede-cpp-root-project "mongo2"
+			  :name "Mongo2 Project"
+			  :file "~/mongo2/SConstruct"
+			  :include-path '("/" "bson" "client" "db" "s" "shell" "tools" "util")))
 
 
 (defun my-cedet-hook ()
