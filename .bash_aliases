@@ -1,5 +1,6 @@
 alias rm='rm -i'
 alias cp='cp -i'
+alias scons='time scons'
 if [[ $(uname) == 'Linux' ]]; then
     alias open='gnome-open'
 fi
