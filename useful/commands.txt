@@ -3,3 +3,6 @@ df -h
 
 # See process virtual memory map
 pmap
+
+# Show what's actually in physical memory
+vmtouch
