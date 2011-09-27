@@ -6,3 +6,12 @@ pmap
 
 # Show what's actually in physical memory
 vmtouch
+
+# My trace route - traces network path to address
+mtr
+
+# DNS resolution info
+dig
+
+# List all open sockets
+netstat
