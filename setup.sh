@@ -22,13 +22,18 @@ do
     ln -s $dst $src
 done
 
-# Add em script to path
+# Add bin scripts to bin
 if [ ! -e $HOME/bin ]; then
     mkdir $HOME/bin
 fi
-if [[ ! (-L $HOME/bin/em && $(readlink $HOME/bin/em) == $HOME/.configs/em.sh) ]]; then
-    ln -s $HOME/.configs/em.sh $HOME/bin/em
-fi
+for filepath in $HOME/.configs/bin/*
+do
+    filename=$(basename $filepath)
+    destname=$(basename $filepath .sh)
+    if [[ ! (-L $HOME/bin/$destname && $(readlink $HOME/bin/$destname) == $HOME/.configs/bin/$filename) ]]; then
+        ln -s $HOME/.configs/bin/$filename $HOME/bin/$destname
+    fi
+done
 
 # Setup .gitconfig
 yes | cp -f gitconfig .gitconfig
