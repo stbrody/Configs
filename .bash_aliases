@@ -4,7 +4,8 @@ alias scons='time scons'
 if [[ $(uname) == 'Linux' ]]; then
     alias open='gnome-open'
 fi
-alias genmongotags="cd ~/mongo; find bson client db s shell tools util  -regex \".*\\.[cChH]\\(pp\\)?\" | etags -; cd - > /dev/null"
+
+alias genmongotags="find bson client db s shell tools util  -regex \".*\\.[cChH]\\(pp\\)?\" | etags -"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
