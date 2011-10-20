@@ -59,7 +59,8 @@ else
 fi
 _COMPILE_THREADS=$(echo $_CORES '* 3 / 2' | bc)
 
-export SCONSFLAGS="-j$_COMPILE_THREADS"
+# Set scons flags
+export SCONSFLAGS="-j$_COMPILE_THREADS --d --dd"
 
 #
 # Set the prompt.
