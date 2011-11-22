@@ -1,0 +1,2 @@
+# Be able to step one thread at a time.
+set scheduler-locking off
