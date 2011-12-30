@@ -57,13 +57,13 @@
     (ede-cpp-root-project "mongo"
 			  :name "Mongo Project"
 			  :file "~/mongo/SConstruct"
-			  :include-path '("/" "bson" "client" "db" "s" "shell" "tools" "util")))
+			  :include-path '("src/mongo/bson" "src/mongo/client" "src/mongo/db" "src/mongo/s" "src/mongo/shell" "src/mongo/tools" "src/mongo/util")))
 
 (if (file-exists-p "~/mongo2/SConstruct")
     (ede-cpp-root-project "mongo2"
 			  :name "Mongo2 Project"
 			  :file "~/mongo2/SConstruct"
-			  :include-path '("/" "bson" "client" "db" "s" "shell" "tools" "util")))
+			  :include-path '("src/mongo/bson" "src/mongo/client" "src/mongo/db" "src/mongo/s" "src/mongo/shell" "src/mongo/tools" "src/mongo/util")))
 
 
 (defun my-cedet-hook ()

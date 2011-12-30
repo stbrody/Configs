@@ -5,7 +5,7 @@ if [[ $(uname) == 'Linux' ]]; then
     alias open='gnome-open'
 fi
 
-alias genmongotags="find bson client db s shell tools util  -regex \".*\\.[cChH]\\(pp\\)?\" | etags -"
+alias genmongotags="find src/mongo/bson src/mongo/client src/mongo/db src/mongo/s src/mongo/shell src/mongo/tools src/mongo/util  -regex \".*\\.[cChH]\\(pp\\)?\" | etags -"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
