@@ -3,7 +3,7 @@
 dd bs=512 count=83968 if=/dev/zero of=/data/db/diskfulltest.img
 mkfs.ext2 -m 0 -F /data/db/diskfulltest.img
 mkdir /data/db/diskfulltest
-mount -o loop /data/db/diskfulltest.img /data/db/diskfulltest
+sudo mount -o loop /data/db/diskfulltest.img /data/db/diskfulltest
 chmod 777 /data/db/diskfulltest
 rm -rf /data/db/diskfulltest/*
 

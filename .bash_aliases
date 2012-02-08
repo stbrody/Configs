@@ -5,8 +5,6 @@ if [[ $(uname) == 'Linux' ]]; then
     alias open='gnome-open'
 fi
 
-alias genmongotags="find src/mongo/bson src/mongo/client src/mongo/db src/mongo/s src/mongo/shell src/mongo/tools src/mongo/util  -regex \".*\\.[cChH]\\(pp\\)?\" | etags -"
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -28,3 +26,8 @@ alias egrep='egrep --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
 #alias l='ls -CF'
+
+# 10gen specific aliases
+#alias genmongotags="find bson client db s shell tools util  -regex \".*\\.[cChH]\\(pp\\)?\" | etags -"
+alias genmongotags="ctags -e --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p  --recurse ."
+alias cr='python ~/10gen/scratch/tools/upload.py -y -s codereview.10gen.com -m'
