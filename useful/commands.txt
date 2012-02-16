@@ -15,3 +15,8 @@ dig
 
 # List all open sockets
 netstat
+
+# Info about virtual memory usage
+free -ltm
+vmstats
+cat /proc/meminfo
