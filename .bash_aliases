@@ -1,6 +1,7 @@
 alias rm='rm -i'
 alias cp='cp -i'
 alias scons='time scons'
+alias mip="curl -Is checkip.10gen.com | grep X-Your-IP | cut -f2 -d' '" # Find my IP address
 if [[ $(uname) == 'Linux' ]]; then
     alias open='gnome-open'
 fi
