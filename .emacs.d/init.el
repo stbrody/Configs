@@ -33,7 +33,9 @@
   (setq tab-width 4) ;; change this to taste, this is what K&R uses :)
   (my-build-tab-stop-list tab-width)
   (setq c-basic-offset tab-width)
-  (setq indent-tabs-mode nil)) ;; force only spaces for indentation
+  (setq indent-tabs-mode nil) ;; force only spaces for indentation
+  ;; Highlight lines longer than 100 characters
+  (font-lock-add-keywords nil '(("^[^\n]\\{100\\}\\(.*\\)$" 1 font-lock-warning-face t))))
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 
