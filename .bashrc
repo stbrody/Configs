@@ -55,7 +55,7 @@ fi
 if [[ $(uname) == 'Linux' ]]; then
     _CORES=$(grep -c processor /proc/cpuinfo )
 else
-    _CORES=$(sysctl hw.ncpu | awk '{print $2}')
+    _CORES=$(sysctl hw.physicalcpu | awk '{print $2}')
 fi
 _COMPILE_THREADS=$(echo $_CORES '* 3 / 2' | bc)
 
