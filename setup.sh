@@ -30,6 +30,7 @@ for filepath in $HOME/.configs/bin/*
 do
     filename=$(basename $filepath)
     destname=$(basename $filepath .sh)
+    chmod 770 $HOME/.configs/bin/$filename
     if [[ ! (-L $HOME/bin/$destname && $(readlink $HOME/bin/$destname) == $HOME/.configs/bin/$filename) ]]; then
         ln -s $HOME/.configs/bin/$filename $HOME/bin/$destname
     fi
