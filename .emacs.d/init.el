@@ -14,6 +14,7 @@
 
 ;; Add to the end of the list
 (add-to-list 'load-path (concat conf-home "elisp") t)
+(add-to-list 'load-path (concat conf-home (file-name-as-directory "elisp") "compiled") t)
 
 (setq custom-file
 	  (concat conf-home "custom.el"))
@@ -45,7 +46,7 @@
 ;(load-file "/usr/share/emacs/site-lisp/xcscope.el")
 (require 'xcscope)
 (setq cscope-display-cscope-buffer nil)
-(byte-recompile-directory "~/.emacs.d/elisp/")
+(byte-recompile-directory "~/.emacs.d/elisp/compiled" 0)
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
