@@ -34,6 +34,7 @@ done
 # Error checking is done, start rewriting symlinks
 for programPath in ${FILES[@]}; do
     program=$(basename $programPath)
+    echo "Using $VERSIONPATH/$program"
     sudo rm -f $BINPATH/$program
     sudo ln -s $VERSIONPATH/$program $BINPATH/$program
 done
