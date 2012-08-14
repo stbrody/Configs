@@ -16,7 +16,8 @@ if __name__ == "__main__":
         (termName, termCommand) = line.rstrip('\n').split('|')
         for option in sys.argv[2:]:
             termCommand += " " + option
-        cmd = "gnome-terminal --geometry=50x15 -t %s -x bash -c \"%s; echo -e '\\nCommand run:\\n%s'; bash;\"" % (termName, termCommand, termCommand)
+        bashCmd = "%s; echo -e '\\nCommand run:\\n%s'; bash;" % (termCommand, termCommand)
+        cmd = "gnome-terminal --geometry=50x15 -t %s -x bash -c \"%s\"" % (termName, bashCmd)
         print cmd
         subprocess.Popen(cmd, shell=True)
         time.sleep(1)
