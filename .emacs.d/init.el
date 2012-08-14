@@ -45,6 +45,9 @@
 ;(load-file "/usr/share/emacs/site-lisp/xcscope.el")
 (require 'xcscope)
 (setq cscope-display-cscope-buffer nil)
+(byte-recompile-directory "~/.emacs.d/elisp/")
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; Setup CEDET
 (load-file "~/.emacs.d/elisp/cedet-1.0/common/cedet.el")
