@@ -5,19 +5,19 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-FILES=(bsondump mongo mongod mongodump mongoexport mongofiles mongoimport mongorestore mongos mongosniff mongostat mongotop)
-
 BINPATH=$(dirname `which mongod`)
 #BINPATH=/usr/local/bin
 VERSION=$1
 VERSIONPATH=$BINPATH/mongodb/$VERSION
+FILES=$VERSIONPATH/*
 
 if [ ! -e $VERSIONPATH ]; then
     echo "ERROR: $VERSIONPATH does not exist"
     exit 1
 fi
 
-for program in ${FILES[@]}; do
+for programPath in ${FILES[@]}; do
+    program=$(basename $programPath)
     if [ ! -e $VERSIONPATH/$program ]; then
         echo "ERROR: $VERSIONPATH/$program does not exist"
         exit 1
@@ -32,7 +32,8 @@ for program in ${FILES[@]}; do
 done
 
 # Error checking is done, start rewriting symlinks
-for program in ${FILES[@]}; do
-    rm -f $BINPATH/$program
-    ln -s $VERSIONPATH/$program $BINPATH/$program
+for programPath in ${FILES[@]}; do
+    program=$(basename $programPath)
+    sudo rm -f $BINPATH/$program
+    sudo ln -s $VERSIONPATH/$program $BINPATH/$program
 done
