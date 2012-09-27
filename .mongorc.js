@@ -42,4 +42,10 @@ if (typeof(setVerboseShell) != "undefined") {
 }
 
 // --------------------Colorizing-------------------- //
-load(".mongorc.colors.js");
+if (hostname() == "ubuntu") {
+    load("/home/spencer/.mongorc.colors.js");
+} else if (hostname() == "Spencer-MacBook.local") {
+    load("/Users/spencer/.mongorc.colors.js");
+} else {
+    print("Unrecognized hostname: " + hostname() + ". Cannot load shell colorization.");
+}
