@@ -14,7 +14,7 @@ __ansi = {
         magenta: '5',
         cyan: '6'
     }
-}
+};
 
 function controlCode( parameters ) {
     if ( parameters == undefined ) {
@@ -99,8 +99,7 @@ tojson = function( x, indent , nolint ) {
     default:
         throw "tojson can't handle type " + ( typeof x );
     }
-
-}
+};
 
 tojsonObject = function( x, indent , nolint ) {
     var lineEnding = nolint ? " " : "\n";
@@ -156,17 +155,17 @@ tojsonObject = function( x, indent , nolint ) {
     // pop one level of indent
     indent = indent.substring(1);
     return s + indent + "}";
-}
+};
 
 // tojson
 
 ObjectId.prototype.toString = function() {
     return this.str;
-}
+};
 
 ObjectId.prototype.tojson = function(indent, nolint) {
     return tojson(this);
-}
+};
 
 Date.prototype.tojson = function() {
 
@@ -194,4 +193,4 @@ Date.prototype.tojson = function() {
 
     var date = colorize('"' + year + "-" + month + "-" + date + "T" + hour +":" + minute + ":" + sec + ofs + '"', "cyan");
     return 'ISODate(' + date + ')';
-}
+};
