@@ -1,0 +1,2 @@
+# Sort log by how long things took.
+cat <mongodb.log> | egrep "[0-9]{3,}ms" | egrep -Ev "[0-9]{10,}ms" | awk '{ print $NF, $0}' | sort -rn > query.txt
