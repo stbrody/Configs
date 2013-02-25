@@ -5,8 +5,12 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-BINPATH=$(dirname `which mongod`)
-#BINPATH=/usr/local/bin
+if command -v foo >/dev/null 2>&1 ; then
+    BINPATH=$(dirname `which mongod`)
+else
+    BINPATH=/usr/local/bin
+fi
+
 VERSION=$1
 VERSIONPATH=$BINPATH/mongodb/$VERSION
 FILES=$VERSIONPATH/*
