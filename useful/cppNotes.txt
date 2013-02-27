@@ -1,0 +1,1 @@
+ffs - find first set bit in an integer
