@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+jiraUsername="spencer"
+emailAddress="spencer@10gen.com"
+
+# get the commit message
+msg=`git log -1 --oneline | cut -d' ' -f2-`
+hash=`git rev-parse HEAD`
+
+if [[ $# -eq 0 ]]; then
+   # just last commit
+   python ~/10gen/scratch/tools/upload.py -y -s codereview.10gen.com \
+       --jira_user $jiraUsername --email $emailAddress -m "$msg" $hash
+else
+   # issue given
+   issue=$1
+
+   python ~/10gen/scratch/tools/upload.py -y -s codereview.10gen.com \
+       --jira_user $jiraUsername --email $emailAddress -m "$msg" -i $issue $hash
+fi
