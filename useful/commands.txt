@@ -20,3 +20,6 @@ netstat
 free -ltm
 vmstats
 cat /proc/meminfo
+
+# Split a file into manageable-sized pieces
+split
