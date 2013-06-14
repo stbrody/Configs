@@ -2,6 +2,8 @@
 
 FILES=(.bash_aliases .bashrc .emacs.d .environment .git-completion.bash .gitconfig .globalgitignore .mongorc.js .mongorc.colors.js .screenrc useful)
 
+DIRECTORIES=(.ssh) # TODO: symlink files from within directories.
+
 for filename in ${FILES[@]}
 do
     src=${HOME}/${filename}
