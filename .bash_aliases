@@ -32,4 +32,3 @@ alias la='ls -A'
 # 10gen specific aliases
 #alias genmongotags="find bson client db s shell tools util  -regex \".*\\.[cChH]\\(pp\\)?\" | etags -"
 alias genmongotags="ctags -e --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p  --recurse ."
-alias cr='python ~/10gen/scratch/tools/upload.py -y -s codereview.10gen.com -m'
