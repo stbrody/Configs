@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+jiraUsername="spencer"
+emailAddress="spencer@10gen.com"
+
+python ~/10gen/scratch/tools/upload.py -y -s codereview.10gen.com \
+    --jira_user $jiraUsername --email $emailAddress -m "$@"

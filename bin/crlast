@@ -17,6 +17,6 @@ else
    # issue given
    issue=$1
 
-   python ~/10gen/scratch/tools/upload.py -y -s codereview.10gen.com \
-       --jira_user $jiraUsername --email $emailAddress -m "$msg" -i $issue $hash
+   python ~/10gen/scratch/tools/upload.py --nojira -y -s codereview.10gen.com \
+       --email $emailAddress -m "$msg" -i $issue $hash
 fi
