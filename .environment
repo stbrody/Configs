@@ -1,2 +1,3 @@
-export EDITOR=em
-export LESS='-Mr'
+export EDITOR="em"
+export LESS="-Mr"
+export SCONSFLAGS="-j$_COMPILE_THREADS --d"
