@@ -49,3 +49,10 @@ if (hostname() == "ubuntu") {
 } else {
     print("Unrecognized hostname: " + hostname() + ". Cannot load shell colorization.");
 }
+
+// --------------------Helper Functions-------------------- //
+DB.prototype.Auth = DB.prototype.auth;
+DB.prototype.au = DB.prototype.auth;
+DB.prototype.AddUser = DB.prototype.addUser;
+DB.prototype.CreateUser = DB.prototype.createUser;
+DB.prototype.cu = DB.prototype.createUser;
