@@ -1,12 +1,14 @@
 [user]
   name = Spencer T Brody
-  email = spencer@10gen.com
+  email = spencer@mongodb.com
 
 [alias]
   co = checkout
   br = branch
   st = status
   cp = commit -a -m "cp"
+  pu = pull --rebase origin master
+  re = rebase -i origin/master
 
 [color]
   branch = auto

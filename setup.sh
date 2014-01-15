@@ -38,8 +38,8 @@ do
     fi
 done
 
-# Setup .gitconfig
-yes | cp -f gitconfig .gitconfig
-if [[ -e github.gitconfig ]]; then
-	cat github.gitconfig >> .gitconfig
-fi
+# Setup .gitconfig  ### WHY WAS THIS HERE?
+#yes | cp -f gitconfig .gitconfig
+#if [[ -e github.gitconfig ]]; then
+#	cat github.gitconfig >> .gitconfig
+#fi
