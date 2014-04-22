@@ -82,6 +82,13 @@
 ;  (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle))
 (add-hook 'c-mode-common-hook 'my-cedet-hook)
 
+;; Highlight lines over 100 chars
+(require 'whitespace)
+(setq whitespace-line-column 100) ;; limit line length
+(setq whitespace-style '(face lines-tail))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+(global-whitespace-mode +1)
+
 (setq inhibit-splash-screen t)
 (show-paren-mode t)
 (line-number-mode 1)
