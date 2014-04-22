@@ -50,6 +50,7 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+PATH="$HOME/.local/bin/:$PATH"
 
 # Set the number of threads for scons to use from the number of cores on the machine
 if [[ $(uname) == 'Linux' ]]; then
