@@ -1,1 +1,1 @@
-time buildscripts/smoke.py --nojournal --continue-on-failure jstests/user_management_helpers.js jstests/role_management_helpers.js jstests/auth/*.js jstests/*auth*.js jstests/replsets/*auth*.js jstests/replsets/*Auth*.js jstests/sharding/*auth*.js jstests/sharding/*Auth*.js
+time buildscripts/smoke.py --nojournal --continue-on-failure --mode=files jstests/core/user_management_helpers.js jstests/core/role_management_helpers.js jstests/auth/*.js jstests/core/*auth*.js jstests/replsets/*auth*.js jstests/replsets/*Auth*.js jstests/sharding/*auth*.js jstests/sharding/*Auth*.js
