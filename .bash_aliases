@@ -2,7 +2,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias scons='time scons'
 alias myip="curl -Is checkip.10gen.com | grep X-Your-IP | cut -f2 -d' '" # Find my IP address
-alias eclipse="eclipse -vmargs -Xmx3G -XX:MaxPermSize=3G"
+alias eclipse="eclipse -vmargs -Xmx4G -XX:MaxPermSize=4G"
 if [[ $(uname) == 'Linux' ]]; then
     alias open='gnome-open'
 fi
