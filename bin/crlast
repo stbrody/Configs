@@ -11,12 +11,12 @@ hash=`git rev-parse HEAD`
 
 if [[ $# -eq 0 ]]; then
    # just last commit
-   python ~/10gen/scratch/tools/upload.py -y -s codereview.10gen.com \
+   python ~/10gen/kernel-tools/codereview/upload.py -y -s codereview.10gen.com \
        --jira_user $jiraUsername --email $emailAddress -m "$msg" $hash
 else
    # issue given
    issue=$1
 
-   python ~/10gen/scratch/tools/upload.py --nojira -y -s codereview.10gen.com \
+   python ~/10gen/kernel-tools/codereview/upload.py --nojira -y -s codereview.10gen.com \
        --email $emailAddress -m "$msg" -i $issue $hash
 fi
