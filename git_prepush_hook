@@ -1,0 +1,54 @@
+#!/bin/sh
+
+# An example hook script to verify what is about to be pushed.  Called by "git
+# push" after it has checked the remote status, but before anything has been
+# pushed.  If this script exits with a non-zero status nothing will be pushed.
+#
+# This hook is called with the following parameters:
+#
+# $1 -- Name of the remote to which the push is being done
+# $2 -- URL to which the push is being done
+#
+# If pushing without using a named remote those arguments will be equal.
+#
+# Information about the commits which are being pushed is supplied as lines to
+# the standard input in the form:
+#
+#   <local ref> <local sha1> <remote ref> <remote sha1>
+#
+# This sample shows how to prevent push of commits where the log message starts
+# with "WIP" (work in progress).
+
+remote="$1"
+url="$2"
+
+read local_ref local_sha remote_ref remote_sha
+
+echo "local_ref: $local_ref, local_sha: $local_sha, remote_ref: $remote_ref, remote_sha: $remote_sha"
+
+if [ "$local_sha" = "" ]
+then
+    echo "No pending commits found!"
+else
+    echo "Commits pending:"
+    #echo "$(git log --oneline $remote..HEAD)"
+    echo "$(git log --oneline $remote_sha..$local_sha)"
+    echo ""
+
+    exec < /dev/tty # eww
+    read -p "Are you sure you want to push (y/n)? " choice
+
+    case "$choice" in
+        y|Y|yes|Yes|YES ) choice="yes";;
+        n|N|no|No|NO ) choice="no";;
+        * ) echo "invalid option"; exit 1;;
+    esac
+
+    if [ "$choice" = "no" ]
+    then
+        exit 1
+    fi
+
+fi
+
+exit 0
