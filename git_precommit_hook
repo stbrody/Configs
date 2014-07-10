@@ -1,0 +1,15 @@
+#!/bin/sh
+
+check_lint() {
+    output=$(git diff-index --name-only HEAD|xargs python buildscripts/lint.py)
+    RETVAL=$?
+    if [ $RETVAL -ne 0 ]; then
+        echo "$output"
+        echo -n "Lint problems detected, aborting commit.  "
+        echo "To commit anyway use --no-verify"
+        exit 1
+    fi
+}
+
+check_lint
+exit 0
