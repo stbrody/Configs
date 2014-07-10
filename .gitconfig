@@ -21,3 +21,5 @@
 
 [core]
   excludesfile = ~/.globalgitignore
+[push]
+	default = simple
