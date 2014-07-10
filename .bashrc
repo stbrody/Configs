@@ -54,9 +54,11 @@ PATH="$HOME/.local/bin/:$PATH"
 
 # Set the number of threads for scons to use from the number of cores on the machine
 if [[ $(uname) == 'Linux' ]]; then
+    _OS='Linux'
     _CORES=$(grep -c processor /proc/cpuinfo )
 else
-    _CORES=$(sysctl hw.physicalcpu | awk '{print $2}')
+    _OS='OSX'
+    _CORES=$(sysctl hw.logicalcpu | awk '{print $2}')
 fi
 _COMPILE_THREADS=$(echo $_CORES '* 3 / 2' | bc)
 
@@ -77,4 +79,9 @@ export PS1='[ \w$(__git_ps1 " (%s)") ] '
 #start screen
 if [ "$TERM" != "screen" ]; then
      screen
+fi
+
+# python include path
+if [ "$_OS" = "OSX" ]; then
+    export PYTHONPATH='/usr/local/lib/python2.7/site-packages'
 fi
