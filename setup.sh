@@ -49,9 +49,3 @@ do
         done
     fi
 done
-
-# Setup .gitconfig  ### WHY WAS THIS HERE?
-#yes | cp -f gitconfig .gitconfig
-#if [[ -e github.gitconfig ]]; then
-#	cat github.gitconfig >> .gitconfig
-#fi
