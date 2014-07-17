@@ -38,6 +38,18 @@ do
     fi
 done
 
+# Setup githooks
+MONGODIRS=($HOME/mongo1 $HOME/mongo2 $HOME/mongo3 $HOME/mongo4)
+for dir in ${MONGODIRS[@]}
+do
+    if [ -e $dir/.git/hooks ]; then
+        for hook in $HOME/.configs/githooks/*
+        do
+            cp $hook $dir/.git/hooks/
+        done
+    fi
+done
+
 # Setup .gitconfig  ### WHY WAS THIS HERE?
 #yes | cp -f gitconfig .gitconfig
 #if [[ -e github.gitconfig ]]; then
