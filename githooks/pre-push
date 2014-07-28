@@ -33,12 +33,12 @@ check_pending_commit_messages() {
         echo ""
 
         exec < /dev/tty # eww
-        read -p "Are you sure you want to push (y/n)? " choice
+        read -ep "Are you sure you want to push (y/n)? " choice
 
         case "$choice" in
             y|Y|yes|Yes|YES ) choice="yes";;
             n|N|no|No|NO ) choice="no";;
-            * ) echo "invalid option"; exit 1;;
+            * ) echo "invalid option: $choice"; exit 1;;
         esac
 
         if [ "$choice" = "no" ]
