@@ -11,5 +11,18 @@ check_lint() {
     fi
 }
 
+# Fix 0 assert codes before comitting.
+fix_error_codes() {
+    output=$(python buildscripts/errorcodes.py --fix)
+    RETVAL=$?
+    if [ $RETVAL -ne 0 ]; then
+        echo "$output"
+        echo -n "Error codes problem detected in currently checked out branch; "
+        echo "aborting commit. To commit anyway use --no-verify"
+        exit $RETVAL
+    fi
+}
+
 check_lint
+fix_error_codes
 exit 0
