@@ -39,13 +39,9 @@ do
 done
 
 # Setup githooks
-MONGODIRS=($HOME/mongo1 $HOME/mongo2 $HOME/mongo3 $HOME/mongo4)
-for dir in ${MONGODIRS[@]}
+mkdir -p $HOME/.git_template/hooks
+for hook in $HOME/.configs/githooks/*
 do
-    if [ -e $dir/.git/hooks ]; then
-        for hook in $HOME/.configs/githooks/*
-        do
-            cp $hook $dir/.git/hooks/
-        done
-    fi
+    cp -i $hook $HOME/.git_template/hooks/
+    cp -i $hook $HOME/mongoMaster/.git/hooks/
 done

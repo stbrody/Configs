@@ -21,3 +21,5 @@
 
 [core]
   excludesfile = ~/.globalgitignore
+[init]
+	templatedir = ~/.git_template
