@@ -33,7 +33,7 @@ check_pending_commit_messages() {
         echo ""
 
         exec < /dev/tty # eww
-        read -ep "Are you sure you want to push (y/n)? " choice
+        read -p "Are you sure you want to push (y/n)? " choice
 
         case "$choice" in
             y|Y|yes|Yes|YES ) choice="yes";;
