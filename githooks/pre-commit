@@ -1,7 +1,12 @@
 #!/bin/sh
 
 check_lint() {
-    output=$(git diff-index --name-only HEAD|xargs python buildscripts/lint.py)
+    files=$(git diff-index --name-only HEAD)
+    if [ -z $files ]; then
+        echo "Found no modified files, skipping lint check"
+        return
+    fi
+    output=$(xargs python buildscripts/lint.py $files)
     RETVAL=$?
     if [ $RETVAL -ne 0 ]; then
         echo "$output"
