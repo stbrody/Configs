@@ -2,6 +2,7 @@
 import sys
 import subprocess
 import time
+import os
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -9,12 +10,21 @@ if __name__ == "__main__":
         sys.exit(-1)
 
     setupFile = sys.argv[1]
+    binDir = sys.argv[2] if len(sys.argv) > 2 else ""
+    if binDir == ".":
+        binDir = ""
 
     for line in open(setupFile):
         if line == "" or line.isspace():
             continue
-        (termName, termCommand) = line.rstrip('\n').split('|')
-        for option in sys.argv[2:]:
+        segments = line.rstrip('\n').split('|')
+        if len(segments) < 3:
+            print "Found only one '|' delimiter, most likely using old setup file"
+            sys.exit(-1)
+        (termName, binName, binArgs) = segments
+        binPath = os.path.join(binDir, binName)
+        termCommand = binPath + " " + binArgs
+        for option in sys.argv[3:]:
             termCommand += " " + option
         bashCmd = "%s; echo -e '\\nCommand run:\\n%s'; bash;" % (termCommand, termCommand)
         if sys.platform == "linux" or sys.platform == "linux2":
