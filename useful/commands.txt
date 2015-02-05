@@ -23,3 +23,6 @@ cat /proc/meminfo
 
 # Split a file into manageable-sized pieces
 split
+
+# Delete files in directory older than 5 days
+find <directory> ! -type d -mtime ++5 -delete
