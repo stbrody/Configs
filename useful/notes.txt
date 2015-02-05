@@ -1,0 +1,24 @@
+# For-loop
+for i in `seq 10`; do echo $i; done
+
+#math
+echo $((2+2))
+
+for file in `find src/mongo | \grep '\.cpp$'`; do echo $file; done
+
+# prints shell history
+history
+
+zsh-syntax-highlighting
+
+# frontend to git
+tig
+
+
+# ssh config can create aliases
+
+# list block devices
+lsblk
+
+# gets PID of running process (ex: pgrep mongod)
+pgrep <process name>
