@@ -6,7 +6,7 @@ import os
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print "Usage: startMongoCluster.py <filepath> [<extraoption> ...]"
+        print "Usage: startMongoCluster.py <setup file> <path to binaries> [<extraoption> ...]"
         sys.exit(-1)
 
     setupFile = sys.argv[1]
