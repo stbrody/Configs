@@ -1,0 +1,7 @@
+The Fuck: https://github.com/nvbn/thefuck
+Fixes up your last command
+
+brew install thefuck        # osx only
+sudo pip install thefuck
+DONT FORGET TO ADD "require_confirmation" SETTING!
+
