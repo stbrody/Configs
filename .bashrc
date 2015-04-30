@@ -63,7 +63,7 @@ fi
 _COMPILE_THREADS=$(echo $_CORES '* 3 / 2' | bc)
 
 # Set scons flags
-export SCONSFLAGS="-j$_COMPILE_THREADS --ssl --dbg=on --mute"
+export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold -j$_COMPILE_THREADS --ssl --dbg=on --mute"
 
 #
 # Set the prompt.
