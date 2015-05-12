@@ -8,7 +8,6 @@
   st = status
   cp = commit -a -m "cp"
   pu = pull --rebase origin master
-  re = rebase -i origin/master
 
 [color]
   branch = auto
