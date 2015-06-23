@@ -22,3 +22,5 @@ metadata
 shard
 docs
 callbacks
+destructor
+std
