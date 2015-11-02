@@ -24,3 +24,8 @@ docs
 callbacks
 destructor
 std
+upsert
+downgrade
+shards
+versioning
+targeters
