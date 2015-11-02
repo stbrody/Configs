@@ -6,3 +6,6 @@ thread apply all bt
 
 # Show the actual derived type of printed objects
 set print object on
+
+# Text user interface for viewing line locations easier
+-tui
