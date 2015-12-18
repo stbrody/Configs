@@ -29,3 +29,5 @@ downgrade
 shards
 versioning
 targeters
+redacted
+mongos

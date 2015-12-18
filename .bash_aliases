@@ -34,3 +34,10 @@ alias la='ls -A'
 # 10gen specific aliases
 #alias genmongotags="find bson client db s shell tools util  -regex \".*\\.[cChH]\\(pp\\)?\" | etags -"
 alias genmongotags="ctags -e --extra=+qf --fields=+iasnfSKtm --c++-kinds=+p  --recurse ."
+
+alias smoke="time python buildscripts/resmoke.py --dbpathPrefix=/data/smoke1/ --basePort=10000"
+alias smoke2="time python buildscripts/resmoke.py --dbpathPrefix=/data/smoke2/ --basePort=20000"
+alias smoke3="time python buildscripts/resmoke.py --dbpathPrefix=/data/smoke3/ --basePort=30000"
+alias smoke4="time python buildscripts/resmoke.py --dbpathPrefix=/data/smoke4/ --basePort=40000"
+
+alias mcipatch="evergreen patch -p mongodb-mongo-master -v enterprise-rhel-62-64-bit,windows-64-2k8-debug -t 'all' -f"
