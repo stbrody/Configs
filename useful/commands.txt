@@ -26,3 +26,6 @@ split
 
 # Delete files in directory older than 5 days
 find <directory> ! -type d -mtime ++5 -delete
+
+# Check if a C++ symbol exists in a binary
+nm -g mongod | c++filt | grep "CatalogManagerCommon::distLock"
