@@ -42,5 +42,5 @@ alias smoke4="time python buildscripts/resmoke.py --dbpathPrefix=/data/smoke4/ -
 
 alias mcipatch="evergreen patch -p mongodb-mongo-master -v enterprise-rhel-62-64-bit,windows-64-2k8-debug -t 'all' -f"
 
-alias sconsOld="scons CC=/opt/mongodbtoolchain/v1/bin/gcc CXX=/opt/mongodbtoolchain/v1/bin/g++"
+alias sconsOld="scons --link-model=object CC=/opt/mongodbtoolchain/v1/bin/gcc CXX=/opt/mongodbtoolchain/v1/bin/g++"
 alias sconsold=sconsOld
