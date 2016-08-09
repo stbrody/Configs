@@ -32,3 +32,8 @@ targeters
 redacted
 mongos
 idempotent
+optime
+standalone
+sharded
+unset
+namespace
