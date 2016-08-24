@@ -37,3 +37,5 @@ standalone
 sharded
 unset
 namespace
+rethink
+mongoses
