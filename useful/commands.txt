@@ -29,3 +29,6 @@ find <directory> ! -type d -mtime ++5 -delete
 
 # Check if a C++ symbol exists in a binary
 nm -g mongod | c++filt | grep "CatalogManagerCommon::distLock"
+
+# Sed script to do string replacement
+find . -type f -name "*.cpp" -not -name "*test*.cpp" -exec sed -i 's/catalogManager/catalogClient/g' {} \;
