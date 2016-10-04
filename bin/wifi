@@ -1,0 +1,21 @@
+#!/bin/bash
+
+action=${1:-status}
+iface="en0"
+
+status() {
+    if (ifconfig $iface | grep -q inet) ; then
+        echo "wifi is on"
+    else    
+        echo "wifi is off"            
+    fi
+    exit 0
+}
+
+case $action in
+    1|on)  networksetup -setairportpower $iface on  ;;
+    0|off) networksetup -setairportpower $iface off ;;
+    reset) $0 off ; sleep 2 ;  $0 on ;;
+    status) status ;;
+    *) echo "usage: $0 1|0|on|off|reset|status" ; exit 1 ;;
+esac
