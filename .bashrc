@@ -62,9 +62,6 @@ else
 fi
 _COMPILE_THREADS=$(echo $_CORES '* 3 / 2' | bc)
 
-# Set scons flags
-export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold -j$_COMPILE_THREADS --ssl CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
-
 #
 # Set the prompt.
 #
@@ -84,4 +81,11 @@ fi
 # python include path
 if [ "$_OS" = "OSX" ]; then
     export PYTHONPATH='/usr/local/lib/python2.7/site-packages'
+fi
+
+# Set scons flags
+if [ "$_OS" = "Linux" ]; then
+    export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold -j$_COMPILE_THREADS --ssl CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
+else
+    export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold -j$_COMPILE_THREADS --ssl"
 fi
