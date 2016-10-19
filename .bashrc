@@ -89,3 +89,12 @@ if [ "$_OS" = "Linux" ]; then
 else
     export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold -j$_COMPILE_THREADS --ssl"
 fi
+
+function scons {
+    if [ -x buildscripts/scons.py ]; then
+        time buildscripts/scons.py "$@"
+    else
+         time scons "$@"
+    fi
+}
+export -f scons
