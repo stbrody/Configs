@@ -48,5 +48,39 @@ check_pending_commit_messages() {
     fi
 }
 
+# Don't push if we are in code freeze in the branch we're pushing to.
+check_code_freeze() {
+
+    branch=$(git name-rev --name-only $remote_ref)
+
+    # Get the code freeze status
+    freeze="`curl -fs https://s3.amazonaws.com/codefreeze/codefreeze.json`"
+    if [ $? -ne 0 ]; then
+        echo "I have no idea, sorry!"
+        exit 1
+    fi
+
+    # Is this branch frozen?
+    frozen="`echo "$freeze" | grep "$branch" | grep "Yes" | cut -d: -f1`"
+
+    if [ -n "$frozen" ]; then
+        if [ "$PUSH_ANYWAY" == "yes" ]; then
+            echo "WARNING: force-pushing onto frozen branch ${branch}..."
+            return
+        else
+            echo
+            echo "WARNING: branch $branch is in code freeze. You can still push your changes IIF:"
+            echo "- you're fixing a broken build, or"
+            echo "- you have approval to push from your lead"
+            echo
+            echo "Run:"
+            echo "  PUSH_ANYWAY=yes git push"
+            echo
+            exit 1
+        fi
+    fi
+}
+
 check_error_codes
+check_code_freeze
 check_pending_commit_messages
