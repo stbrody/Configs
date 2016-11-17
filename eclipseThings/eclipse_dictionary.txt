@@ -39,3 +39,7 @@ unset
 namespace
 rethink
 mongoses
+takeover
+oplog
+timestamp
+stepdown
