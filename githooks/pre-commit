@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 check_lint() {
     files=$(git diff-index --name-only HEAD)
