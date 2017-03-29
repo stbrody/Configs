@@ -60,7 +60,7 @@ else
     _OS='OSX'
     _CORES=$(sysctl hw.logicalcpu | awk '{print $2}')
 fi
-_COMPILE_THREADS=$(echo $_CORES '* 3 / 2' | bc)
+_COMPILE_THREADS=$_CORES
 
 #
 # Set the prompt.
