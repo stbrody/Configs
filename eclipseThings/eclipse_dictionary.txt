@@ -43,3 +43,4 @@ takeover
 oplog
 timestamp
 stepdown
+resilient

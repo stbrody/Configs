@@ -85,7 +85,9 @@ fi
 
 # Set scons flags
 if [ "$_OS" = "Linux" ]; then
-    export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold --cache=nolinked --cache-dir=/media/ssd/mongoCacheDir/ --implicit-cache -j$_COMPILE_THREADS --ssl CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
+# Can't use cache with ninja
+#    export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold --cache=nolinked --cache-dir=/media/ssd/mongoCacheDir/ --implicit-cache -j$_COMPILE_THREADS --ssl CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
+    export SCONSFLAGS="-j$_COMPILE_THREADS --ssl CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
 else
     export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold --implicit-cache -j$_COMPILE_THREADS --ssl"
 fi
@@ -98,3 +100,6 @@ function scons {
     fi
 }
 export -f scons
+
+# Make ninja output prettier
+export NINJA_STATUS='[%f/%t (%p) %es] '

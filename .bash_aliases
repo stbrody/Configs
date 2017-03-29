@@ -43,3 +43,10 @@ alias mcipatch="evergreen patch -p mongodb-mongo-master -f"
 
 alias sconsOld="scons --link-model=object CC=/opt/mongodbtoolchain/v1/bin/gcc CXX=/opt/mongodbtoolchain/v1/bin/g++"
 alias sconsold=sconsOld
+
+alias buildNinja="python buildscripts/scons.py \
+    CCFLAGS='-Wa,--compress-debug-sections -gsplit-dwarf' \
+    MONGO_VERSION='0.0.0' MONGO_GIT_HASH='unknown' \
+    VARIANT_DIR=ninja --modules=ninja \
+    build.ninja"
+alias buildninja=buildNinja
