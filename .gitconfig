@@ -8,6 +8,7 @@
   st = status
   cp = commit -a -m "cp"
   pu = pull --rebase origin master
+  re = !git rebase -i $(git merge-base HEAD origin)
 
 [color]
   branch = auto
