@@ -44,3 +44,5 @@ oplog
 timestamp
 stepdown
 resilient
+ineligible
+racy
