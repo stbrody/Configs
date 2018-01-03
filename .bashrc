@@ -87,7 +87,7 @@ fi
 if [ "$_OS" = "Linux" ]; then
 # Can't use cache with ninja
 #    export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold --cache=nolinked --cache-dir=/media/ssd/mongoCacheDir/ --implicit-cache -j$_COMPILE_THREADS --ssl CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
-    export SCONSFLAGS="-j$_COMPILE_THREADS --ssl CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
+    export SCONSFLAGS="-j$_COMPILE_THREADS --ssl --dbg=on --opt=off CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
 else
     export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold --implicit-cache -j$_COMPILE_THREADS --ssl"
 fi
