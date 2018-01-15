@@ -43,6 +43,44 @@
 
 (require 'linum)
 (require 'cc-mode)
+;(load-file "/usr/share/emacs/site-lisp/xcscope.el")
+(require 'xcscope)
+(setq cscope-display-cscope-buffer nil)
+(byte-recompile-directory "~/.emacs.d/elisp/compiled" 0)
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;; Setup CEDET
+(load-file "~/.emacs.d/elisp/cedet-1.0/common/cedet.el")
+(semantic-load-enable-code-helpers)
+(require 'semantic-ia)
+(require 'semantic-gcc)
+
+(global-ede-mode 1)
+(global-semantic-mru-bookmark-mode 1)
+
+(if (file-exists-p "~/mongo/SConstruct")
+    (ede-cpp-root-project "mongo"
+			  :name "Mongo Project"
+			  :file "~/mongo/SConstruct"
+			  :include-path '("/" "bson" "client" "db" "s" "shell" "tools" "util" "src/mongo")))
+
+(if (file-exists-p "~/mongo2/SConstruct")
+    (ede-cpp-root-project "mongo2"
+			  :name "Mongo2 Project"
+			  :file "~/mongo2/SConstruct"
+			  :include-path '("/" "bson" "client" "db" "s" "shell" "tools" "util" "src/mongo")))
+
+
+(defun my-cedet-hook ()
+  (local-set-key "\M-/" 'semantic-ia-complete-symbol)
+  (local-set-key "\M-?" 'semantic-ia-complete-symbol-menu)
+  (local-set-key "\C-c=" 'semantic-analyze-proto-impl-toggle)
+  (local-set-key "\C-cj" 'semantic-ia-fast-jump)
+  (local-set-key "\C-cu" 'semantic-mrub-switch-tags))
+;  (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
+;  (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle))
+(add-hook 'c-mode-common-hook 'my-cedet-hook)
 
 ;; Highlight lines over 100 chars
 (require 'whitespace)
@@ -66,8 +104,23 @@
 (setq-default delete-old-versions t)
 (setq-default scroll-conservatively 1)
 
+(global-set-key [(f9)] 'compile)
+;(global-set-key [(control tab)] 'dabbrev-expand)
 (global-set-key "\C-z" 'undo)
 
+(setq compilation-window-height 8)
+
+(setq compilation-finish-function
+      (lambda (buf str)
+
+        (if (string-match "exited abnormally" str)
+
+            ;;there were errors
+            (message "compilation errors, press C-x ` to visit")
+
+          ;;no errors, make the compilation window go away in 0.5 seconds
+          (run-at-time 0.5 nil 'delete-windows-on buf)
+          (message "NO COMPILATION ERRORS!"))))
 
 ;; Time how long it took to start up.
 (let ((the-time (current-time)))
@@ -82,3 +135,6 @@
                 (* 1000000
                    (second *emacs-load-start*)))
                ) 1000)))
+
+;;(message "%s" (lookup-key global-map [(meta tab)]))
+(put 'scroll-left 'disabled nil)
