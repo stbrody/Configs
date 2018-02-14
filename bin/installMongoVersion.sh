@@ -21,21 +21,21 @@ fi
 
 echo "Creating directory for MongoDB files at: $VERSIONPATH"
 
-if (! sudo mkdir -p $VERSIONPATH); then
+if (! mkdir -p $VERSIONPATH); then
     echo "ERROR: creating $VERSIONPATH failed"
     exit 1
 fi
 
 echo "Installing MongoDB files to: $VERSIONPATH"
 
-if (! sudo scons --prefix=$VERSIONPATH install); then
+if (! buildscripts/scons.py --prefix=$VERSIONPATH install); then
     echo "ERROR: installing MongoDB to $VERSIONPATH failed"
     exit 1
 fi
 
 echo "Moving MongoDB files from temporary bin directory to final location at: $VERSIONPATH"
 
-if (! sudo mv $VERSIONPATH/bin/* $VERSIONPATH); then
+if (! mv $VERSIONPATH/bin/* $VERSIONPATH); then
     echo "ERROR: moving files from temporary bin directory failed"
     exit 1
 fi
