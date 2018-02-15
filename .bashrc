@@ -103,3 +103,6 @@ export -f scons
 
 # Make ninja output prettier
 export NINJA_STATUS='[%f/%t (%p) %es] '
+
+# Increase ccache size for ninja
+ccache -o max_size=20G

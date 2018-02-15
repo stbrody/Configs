@@ -47,6 +47,6 @@ alias sconsold=sconsOld
 alias buildNinja="python buildscripts/scons.py \
     CCFLAGS='-Wa,--compress-debug-sections -gsplit-dwarf' \
     MONGO_VERSION='0.0.0' MONGO_GIT_HASH='unknown' \
-    VARIANT_DIR=ninja --modules=ninja \
+    VARIANT_DIR=ninja --modules=ninja --icecream --dbg=on --opt=off \
     build.ninja"
 alias buildninja=buildNinja
