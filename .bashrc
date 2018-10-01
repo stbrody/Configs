@@ -74,7 +74,7 @@ export PS1='[ \w$(__git_ps1 " (%s)") ] '
 #export PS1='[ \w $(vcprompt|sed "s/\\[\\([a-zA-Z0-9]*\\):]/(\\1)/"|sed "s/\\[\\([a-z]*\\):\\([a-z]*\\)\\]/(\\1:\\2)/")] '
 
 #start screen
-if [ "$TERM" != "screen.xterm-256color" ]; then
+if [ "$TERM" != "screen.xterm-256color" ] && [ "$TERM" != "screen" ]; then
      screen
 fi
 
