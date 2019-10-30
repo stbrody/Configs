@@ -89,7 +89,7 @@ if [ "$_OS" = "Linux" ]; then
 #    export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold --cache=nolinked --cache-dir=/media/ssd/mongoCacheDir/ --implicit-cache -j$_COMPILE_THREADS --ssl CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
     export SCONSFLAGS="-j$_COMPILE_THREADS --dbg=on --opt=off CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
 else
-    export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold --implicit-cache -j$_COMPILE_THREADS --ssl"
+    export SCONSFLAGS="-j$_COMPILE_THREADS"
 fi
 
 function scons {
