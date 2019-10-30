@@ -4,7 +4,6 @@
 ;; This gives us `third'
 (require 'cl)
 
-
 ;;;;Set up emacs paths
 (setq conf-home (concat (file-name-as-directory (expand-file-name "~"))
 						(file-name-as-directory ".emacs.d")))
@@ -20,6 +19,9 @@
 	  (concat conf-home "custom.el"))
 (load custom-file 'noerror)
 
+;; golang stuff
+(add-to-list 'load-path "/usr/local/go/misc/emacs")
+(require 'go-mode-load)
 
 ;;;;Set up C indentation
 (defun my-build-tab-stop-list (width)
@@ -48,15 +50,15 @@
 (require 'whitespace)
 (setq whitespace-line-column 100) ;; limit line length
 (setq whitespace-style '(face lines-tail))
-(add-hook 'prog-mode-hook 'whitespace-mode)
-(global-whitespace-mode +1)
+;(add-hook 'prog-mode-hook 'whitespace-mode)
+;(global-whitespace-mode +1)
 
 (setq inhibit-splash-screen t)
 (show-paren-mode t)
 (line-number-mode 1)
 (column-number-mode 1)
 (transient-mark-mode t)
-(global-linum-mode 1)
+;(global-linum-mode 1)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default show-trailing-whitespace t)
