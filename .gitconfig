@@ -9,6 +9,7 @@
   cp = commit -a -m "cp"
   pu = pull --rebase origin master
   re = !git rebase -i $(git merge-base HEAD origin)
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
 [color]
   branch = auto
