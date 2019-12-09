@@ -48,9 +48,12 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/bin:$PATH"
 fi
-PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
+
+# Add Rust's cargo bin to PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Set the number of threads for scons to use from the number of cores on the machine
 if [[ $(uname) == 'Linux' ]]; then
