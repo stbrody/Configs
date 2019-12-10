@@ -50,7 +50,10 @@ fi
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
-export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Put /usr/local/bin before /usr/bin
+export PATH="/usr/local/bin:$PATH"
 
 # Add Rust's cargo bin to PATH
 export PATH="$HOME/.cargo/bin:$PATH"

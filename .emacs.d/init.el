@@ -19,6 +19,16 @@
 	  (concat conf-home "custom.el"))
 (load custom-file 'noerror)
 
+;; Enable Melpa package manager
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+(package-refresh-contents)
+
+;; Rust stuff
+(require 'rust-mode)
+
 ;; golang stuff
 (add-to-list 'load-path "/usr/local/go/misc/emacs")
 (require 'go-mode-load)
