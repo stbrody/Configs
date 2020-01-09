@@ -58,6 +58,9 @@ export PATH="/usr/local/bin:$PATH"
 # Add Rust's cargo bin to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Add brew-installed ruby to path before system ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 # Set the number of threads for scons to use from the number of cores on the machine
 if [[ $(uname) == 'Linux' ]]; then
     _OS='Linux'
