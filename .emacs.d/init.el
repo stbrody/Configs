@@ -68,7 +68,7 @@
 (line-number-mode 1)
 (column-number-mode 1)
 (transient-mark-mode t)
-;(global-linum-mode 1)
+(global-linum-mode 1)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default show-trailing-whitespace t)
