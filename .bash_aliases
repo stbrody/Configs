@@ -5,6 +5,7 @@ alias eclipse="eclipse -vmargs -Xmx4G -XX:MaxPermSize=4G"
 if [[ $(uname) == 'Linux' ]]; then
     alias open='gnome-open'
 fi
+alias cargo='time cargo'
 
 alias fuck='eval $(thefuck $(fc -ln -1))'
 
