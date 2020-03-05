@@ -31,7 +31,10 @@ find <directory> ! -type d -mtime ++5 -delete
 nm -g mongod | c++filt | grep "CatalogManagerCommon::distLock"
 
 # Sed script to do string replacement
+# linux:
 find . -type f -name "*.cpp" -not -name "*test*.cpp" -exec sed -i 's/catalogManager/catalogClient/g' {} \;
+# osx:
+find . -type f -name "*.cpp" -not -name "*test*.cpp" -exec sed -i '' -e 's/catalogManager/catalogClient/g' {} \;
 
 # git blame a removed line
 git log -S <string> path/to/file
