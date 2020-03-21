@@ -9,8 +9,6 @@
 #umask 022
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-echo "Logging in"
-
 # Set up buttons on Evoluent sideways mouse
 if xinput list | grep -q Evoluent ; then
     idNum=$(xinput list | grep Evoluent|sed 's/.*id=\([0-9]*\).*/\1/')
