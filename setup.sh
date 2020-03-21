@@ -43,5 +43,5 @@ mkdir -p $HOME/.git_template/hooks
 for hook in $HOME/.configs/githooks/*
 do
     cp -i $hook $HOME/.git_template/hooks/
-    cp -i $hook /media/ssd/mongoMaster/.git/hooks/
+    cp -i $hook $HOME/mongo/.git/hooks/
 done
