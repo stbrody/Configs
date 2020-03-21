@@ -23,3 +23,5 @@ escape ``                 # Make ` (backtick) the default command key
 markkeys B=[:E=]:b={:e=}:w=>
 bindkey -m ^[Od stuff {  #"[[}"
 bindkey -m ^[Oc stuff ]  #"}]^f"
+
+shell "/bin/bash"

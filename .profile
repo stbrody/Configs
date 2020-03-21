@@ -7,6 +7,7 @@
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 echo "Logging in"
 
