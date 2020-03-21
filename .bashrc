@@ -88,9 +88,9 @@ if [ "$TERM" != "screen.xterm-256color" ] && [ "$TERM" != "screen" ]; then
 fi
 
 # python include path
-if [ "$_OS" = "OSX" ]; then
-    export PYTHONPATH='/usr/local/lib/python2.7/site-packages'
-fi
+#if [ "$_OS" = "OSX" ]; then
+#    export PYTHONPATH='/usr/local/lib/python2.7/site-packages'
+#fi
 
 # Set scons flags
 if [ "$_OS" = "Linux" ]; then
@@ -115,3 +115,8 @@ export NINJA_STATUS='[%f/%t (%p) %es] '
 
 # Increase ccache size for ninja
 #ccache -o max_size=20G
+
+# Set up pyenv to manage python versions
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
