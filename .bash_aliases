@@ -45,9 +45,13 @@ alias mcipatch="evergreen patch -p mongodb-mongo-master -a required -f"
 alias sconsOld="scons --link-model=object CC=/opt/mongodbtoolchain/v1/bin/gcc CXX=/opt/mongodbtoolchain/v1/bin/g++"
 alias sconsold=sconsOld
 
-alias buildNinja="python buildscripts/scons.py \
-    CCFLAGS='-Wa,--compress-debug-sections -gsplit-dwarf' \
-    MONGO_VERSION='0.0.0' MONGO_GIT_HASH='unknown' \
-    VARIANT_DIR=ninja --modules=ninja --icecream --dbg=on --opt=off \
-    build.ninja"
+# OSX
+alias buildNinja="./buildscripts/scons.py "MONGO_VERSION=0.0.0" "MONGO_GIT_HASH=unknown" --dbg --variables-files=etc/scons/xcode_macosx.vars --ninja generate-ninja"
+
+# Linux (old)
+#alias buildNinja="python buildscripts/scons.py \
+#    CCFLAGS='-Wa,--compress-debug-sections -gsplit-dwarf' \
+#    MONGO_VERSION='0.0.0' MONGO_GIT_HASH='unknown' \
+#    VARIANT_DIR=ninja --modules=ninja --icecream --dbg=on --opt=off \
+#    build.ninja"
 alias buildninja=buildNinja
