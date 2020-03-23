@@ -37,8 +37,8 @@
 (add-hook 'racer-mode-hook #'company-mode)
 
 ;; golang stuff
-(add-to-list 'load-path "/usr/local/go/misc/emacs")
-(require 'go-mode-load)
+;(add-to-list 'load-path "/usr/local/go/misc/emacs")
+;(require 'go-mode-load)
 
 ;;;;Set up C indentation
 (defun my-build-tab-stop-list (width)
