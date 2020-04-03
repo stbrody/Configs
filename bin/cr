@@ -16,5 +16,5 @@ then
     gitstuff="$gitstuff^ $gitstuff"
 fi
 
-python ~/10gen/kernel-tools/codereview/upload.py -y --check-clang-format \
+python ~/10gen/kernel-tools/codereview/upload.py -y --check-clang-format --check-eslint \
     --git_similarity=99 --jira_user $jiraUsername --email $emailAddress -m "$msg" $gitstuff

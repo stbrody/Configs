@@ -18,5 +18,5 @@ else
    issue=$1
 
    python ~/10gen/kernel-tools/codereview/upload.py --nojira -y --check-clang-format \
-       --git_similarity=99 --email $emailAddress -m "$msg" -i $issue $hash^ $hash
+       --check-eslint --git_similarity=99 --email $emailAddress -m "$msg" -i $issue $hash^ $hash
 fi
