@@ -1,7 +1,3 @@
-[user]
-  name = Spencer T Brody
-  email = spencer.t.brody@gmail.com
-
 [alias]
   co = checkout
   br = branch
