@@ -3,11 +3,12 @@
 FILES=(.bash_aliases .bashrc .emacs.d .environment .git-completion.bash .gitconfig .globalgitignore .mongorc.js .mongorc.colors.js .profile .screenrc useful)
 
 DIRECTORIES=(.ssh) # TODO: symlink files from within directories.
+CONFIG_DIR="$HOME/user_home/Configs"
 
 for filename in ${FILES[@]}
 do
     src=${HOME}/${filename}
-    dst="$HOME/user_home/Configs/$filename"
+    dst="$CONFIG_DIR/$filename"
 
     # Delete file if it exists.
     if [ -e $src ]; then
@@ -28,13 +29,13 @@ done
 if [ ! -e $HOME/bin ]; then
     mkdir $HOME/bin
 fi
-for filepath in $HOME/user_home/Configs/bin/*
+for filepath in $CONFIG_DIR/bin/*
 do
     filename=$(basename $filepath)
     destname=$(basename $filepath .sh)
-    chmod 770 $HOME/.configs/bin/$filename
-    if [[ ! (-L $HOME/bin/$destname && $(readlink $HOME/bin/$destname) == $HOME/.configs/bin/$filename) ]]; then
-        ln -s $HOME/.configs/bin/$filename $HOME/bin/$destname
+    chmod 770 $CONFIG_DIR/bin/$filename
+    if [[ ! (-L $HOME/bin/$destname && $(readlink $HOME/bin/$destname) == $CONFIG_DIR/bin/$filename) ]]; then
+        ln -s $CONFIG_DIR/bin/$filename $HOME/bin/$destname
     fi
 done
 
