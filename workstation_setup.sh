@@ -7,7 +7,7 @@ DIRECTORIES=(.ssh) # TODO: symlink files from within directories.
 for filename in ${FILES[@]}
 do
     src=${HOME}/${filename}
-    dst="$HOME/user_dir/Configs/$filename"
+    dst="$HOME/user_home/Configs/$filename"
 
     # Delete file if it exists.
     if [ -e $src ]; then
@@ -28,7 +28,7 @@ done
 if [ ! -e $HOME/bin ]; then
     mkdir $HOME/bin
 fi
-for filepath in $HOME/.configs/bin/*
+for filepath in $HOME/user_home/Configs/bin/*
 do
     filename=$(basename $filepath)
     destname=$(basename $filepath .sh)
