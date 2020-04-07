@@ -41,6 +41,7 @@ alias smoke3="time python buildscripts/resmoke.py --dbpathPrefix=~/resmoke_data/
 alias smoke4="time python buildscripts/resmoke.py --dbpathPrefix=~/resmoke_data/smoke4/ --basePort=35000"
 
 alias mcipatch="evergreen patch -p mongodb-mongo-master -a required -f"
+alias commitqueue="evergreen commit-queue merge --project mongodb-mongo-master"
 
 alias sconsOld="scons --link-model=object CC=/opt/mongodbtoolchain/v1/bin/gcc CXX=/opt/mongodbtoolchain/v1/bin/g++"
 alias sconsold=sconsOld
