@@ -28,6 +28,6 @@ fix_error_codes() {
     fi
 }
 
-check_lint
+# check_lint
 #fix_error_codes #useless b/c the change happens after the commit
 exit 0
