@@ -24,4 +24,7 @@ markkeys B=[:E=]:b={:e=}:w=>
 bindkey -m ^[Od stuff {  #"[[}"
 bindkey -m ^[Oc stuff ]  #"}]^f"
 
+# Fix SSH agent forwardings
+setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+
 shell "/bin/bash"
