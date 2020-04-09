@@ -11,12 +11,12 @@ hash=`git rev-parse HEAD`
 
 if [[ $# -eq 0 ]]; then
    # just last commit
-   python ~/10gen/kernel-tools/codereview/upload.py -y --check-clang-format \
+   python3 $USER_HOME/10gen/kernel-tools/codereview/upload.py -y --check-clang-format \
        --jira_user $jiraUsername --email $emailAddress -m "$msg" $hash^ $hash
 else
    # issue given
    issue=$1
 
-   python ~/10gen/kernel-tools/codereview/upload.py --nojira -y --check-clang-format \
+   python3 $USER_HOME/10gen/kernel-tools/codereview/upload.py --nojira -y --check-clang-format \
        --check-eslint --git_similarity=99 --email $emailAddress -m "$msg" -i $issue $hash^ $hash
 fi
