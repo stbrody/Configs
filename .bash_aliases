@@ -46,14 +46,22 @@ alias commitqueue="evergreen commit-queue merge --project mongodb-mongo-master"
 alias sconsOld="scons --link-model=object CC=/opt/mongodbtoolchain/v1/bin/gcc CXX=/opt/mongodbtoolchain/v1/bin/g++"
 alias sconsold=sconsOld
 
-# OSX
-#alias buildNinja="./buildscripts/scons.py "MONGO_VERSION=0.0.0" "MONGO_GIT_HASH=unknown" --dbg CCACHE=ccache --variables-files=etc/scons/xcode_macosx.vars --ninja generate-ninja"
 
-# Linux
-alias buildNinja="python3 buildscripts/scons.py \
+if [[ $(uname) == 'Linux' ]]; then
+  alias buildNinja="python3 buildscripts/scons.py \
     MONGO_VERSION='0.0.0' MONGO_GIT_HASH='unknown' \
     --dbg=on --opt=off --link-model=dynamic \
     --variables-files=./etc/scons/mongodbtoolchain_stable_gcc.vars \
     ICECC=icecc CCACHE=ccache \
     --ninja generate-ninja"
+else
+  alias buildNinja="python3 buildscripts/scons.py \
+    "MONGO_VERSION=0.0.0" "MONGO_GIT_HASH=unknown" \
+    --dbg=on --opt=off --link-mode=dynamic \
+    --variables-files=etc/scons/xcode_macosx.vars \
+    CCACHE=ccache \
+    --ninja generate-ninja"
+
+fi
+
 alias buildninja=buildNinja
