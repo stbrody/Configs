@@ -27,14 +27,14 @@
 (package-refresh-contents)
 
 ;; Rust stuff
-(require 'rust-mode)
+;(require 'rust-mode)
 
-(setq racer-cmd "~/.cargo/bin/racer") ;; Rustup binaries PATH
-(setq racer-rust-src-path "/Users/Spencer/rustSrc/src") ;; Rust source code PATH
+;(setq racer-cmd "~/.cargo/bin/racer") ;; Rustup binaries PATH
+;(setq racer-rust-src-path "/Users/Spencer/rustSrc/src") ;; Rust source code PATH
 
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook #'company-mode)
+;(add-hook 'rust-mode-hook #'racer-mode)
+;(add-hook 'racer-mode-hook #'eldoc-mode)
+;(add-hook 'racer-mode-hook #'company-mode)
 
 ;; golang stuff
 ;(add-to-list 'load-path "/usr/local/go/misc/emacs")
