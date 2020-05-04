@@ -48,7 +48,7 @@ do
 done
 
 # Add my .bashrc to the workstation's bashrc
-echo ". ~/user_home/Configs/.bashrc" >> ~/.bashrc
+echo ". $HOME/user_home/Configs/.bashrc" >> ~/.bashrc
 
 # Override USER_HOME for workstation
 echo "export USER_HOME=\"\$HOME/user_home\"" >> ~/.bashrc
