@@ -50,17 +50,17 @@ alias sconsold=sconsOld
 if [[ $(uname) == 'Linux' ]]; then
   alias buildNinja="python3 buildscripts/scons.py \
     MONGO_VERSION='0.0.0' MONGO_GIT_HASH='unknown' \
-    --dbg=on --opt=off --link-model=dynamic \
+    --dbg=on --opt=off --link-model=dynamic --install-mode=hygienic \
     --variables-files=./etc/scons/mongodbtoolchain_stable_gcc.vars \
     ICECC=icecc CCACHE=ccache \
-    --ninja generate-ninja"
+    --ninja=next generate-ninja"
 else
   alias buildNinja="python3 buildscripts/scons.py \
     "MONGO_VERSION=0.0.0" "MONGO_GIT_HASH=unknown" \
-    --dbg=on --opt=off --link-mode=dynamic \
+    --dbg=on --opt=off --link-mode=dynamic --install-mode=hygienic \
     --variables-files=etc/scons/xcode_macosx.vars \
     CCACHE=ccache \
-    --ninja generate-ninja"
+    --ninja=next generate-ninja"
 
 fi
 
