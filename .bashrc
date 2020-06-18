@@ -7,7 +7,7 @@
 
 # Add USER_HOME so my setup scripts can look there to see what to treat
 # as the home dir
-USER_HOME="~"
+export USER_HOME="/Users/spencer"
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
