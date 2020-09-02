@@ -1,0 +1,2 @@
+/opt/mongodbtoolchain/v3/bin/pip3 install -r etc/pip/compile-requirements.txt
+/opt/mongodbtoolchain/v3/bin/python3 buildscripts/scons.py --dbg=on --opt=on -j$(grep -c ^processor /proc/cpuinfo) --variables-files=etc/scons/mongodbtoolchain_v3_gcc.vars --link-model=dynamic MONGO_VERSION='0.0.0' build/install/bin/db_repl_test
