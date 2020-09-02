@@ -47,3 +47,6 @@ resilient
 ineligible
 racy
 stepdowns
+failovers
+failover
+unreplicated
