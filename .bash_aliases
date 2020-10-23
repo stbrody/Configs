@@ -6,6 +6,7 @@ if [[ $(uname) == 'Linux' ]]; then
     alias open='gnome-open'
 fi
 alias cargo='time cargo'
+alias npm='time npm'
 
 alias fuck='eval $(thefuck $(fc -ln -1))'
 
