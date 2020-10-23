@@ -81,6 +81,6 @@ check_code_freeze() {
     fi
 }
 
-check_error_codes
-check_code_freeze
+# check_error_codes
+# check_code_freeze
 check_pending_commit_messages
