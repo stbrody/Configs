@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=(.bash_aliases .bashrc .emacs.d .environment .git-completion.bash .gitconfig .globalgitignore .mongorc.js .mongorc.colors.js .profile .screenrc useful)
+FILES=(.bash_aliases .bashrc .emacs.d .environment .git-completion.bash .gitconfig .globalgitignore .profile .screenrc useful)
 
 DIRECTORIES=(.ssh) # TODO: symlink files from within directories.
 
@@ -43,5 +43,4 @@ mkdir -p $HOME/.git_template/hooks
 for hook in $HOME/.configs/githooks/*
 do
     cp -i $hook $HOME/.git_template/hooks/
-    cp -i $hook $HOME/mongo/.git/hooks/
 done

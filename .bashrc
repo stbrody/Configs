@@ -102,30 +102,6 @@ fi
 #    export PYTHONPATH='/usr/local/lib/python2.7/site-packages'
 #fi
 
-# Set scons flags
-#if [ "$_OS" = "Linux" ]; then
-# Can't use cache with ninja
-#    export SCONSFLAGS="LINKFLAGS=-fuse-ld=gold --cache=nolinked --cache-dir=/media/ssd/mongoCacheDir/ --implicit-cache -j$_COMPILE_THREADS --ssl CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
-#    export SCONSFLAGS="-j$_COMPILE_THREADS --dbg=on --opt=off CC=/opt/mongodbtoolchain/v2/bin/gcc CXX=/opt/mongodbtoolchain/v2/bin/g++"
-#else
-#    export SCONSFLAGS="-j$_COMPILE_THREADS"
-#fi
-
-function scons {
-    if [ -x buildscripts/scons.py ]; then
-        time buildscripts/scons.py "$@"
-    else
-         time scons "$@"
-    fi
-}
-export -f scons
-
-# Make ninja output prettier
-export NINJA_STATUS='[%f/%t (%p) %es] '
-
-# Increase ccache size for ninja
-#ccache -o max_size=20G
-
 # Set up pyenv to manage python versions
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"

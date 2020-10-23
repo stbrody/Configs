@@ -1,6 +1,5 @@
 outdated
 db
-mongorestore
 param
 config
 heartbeat
@@ -11,7 +10,6 @@ configs
 reconfig
 rollback
 rollbacks
-mongod
 reconfigs
 electable
 accessors
@@ -30,7 +28,6 @@ shards
 versioning
 targeters
 redacted
-mongos
 idempotent
 optime
 standalone
@@ -38,7 +35,6 @@ sharded
 unset
 namespace
 rethink
-mongoses
 takeover
 oplog
 timestamp
