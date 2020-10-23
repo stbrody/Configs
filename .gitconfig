@@ -3,7 +3,7 @@
   br = branch
   st = status
   cp = commit -a -m "cp"
-  pu = pull --rebase origin master
+  pu = !git pull --rebase origin $(git merge-base HEAD origin)
   re = !git rebase -i $(git merge-base HEAD origin)
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
@@ -22,3 +22,6 @@
 	templatedir = ~/.git_template
 [push]
 	default = simple
+[user]
+	email = spencer@3box.io
+	name = Spencer T Brody
