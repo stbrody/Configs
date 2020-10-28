@@ -9,5 +9,5 @@
 #umask 022
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-/home/spencer/bin/xinput_set.sh
+/home/spencer/bin/xinput_set
 
