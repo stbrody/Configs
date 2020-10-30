@@ -1,0 +1,34 @@
+js-ipfs-daemon:
+npm install
+npm run build
+npm start
+
+
+ganache:
+run ganache, use quickstart
+
+
+ceramic-anchor-service:
+
+npm install
+npm run build
+cp .env.dev.example .env
+
+edit .env
+- add "MODE = bundled" line at the end
+- changre ANCHOR_SCHEDULE_EXPRESSION to just "* * * * *"
+- change port (IPFS_API_URL) to IPFS port (5011)
+- Change ETH_RPC_PORT=to port from ganache(7545)
+-ETH_WALLET_PK to first address private key from ganache (add 0x to beginning)
+
+npm run startDev
+
+
+js-ceramic:
+
+cd packages/ceramic-cli
+
+node ./bin/ceramic.js daemon --ipfs-api=http://localhost:5011 --anchor-service-api=http://localhost:8081/api/v0/requests
+
+
+node ./bin/ceramic.js create tile --content '{ "step": "112378122219" }'
