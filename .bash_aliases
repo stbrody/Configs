@@ -7,6 +7,7 @@ if [[ $(uname) == 'Linux' ]]; then
 fi
 alias cargo='time cargo'
 alias npm='time npm'
+alias ceramic='node packages/cli/bin/ceramic.js'
 
 alias fuck='eval $(thefuck $(fc -ln -1))'
 
