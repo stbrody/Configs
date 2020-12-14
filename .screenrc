@@ -1,5 +1,12 @@
 startup_message off
 
+# Turn on mouse tracking
+mousetrack on
+defmousetrack on
+
+# Let `o be used to cycle between regions
+bind o focus next
+
 hardstatus alwayslastline
 #hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR} (%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}] {=b C}[ %m/%d %c ]%{W}'
 hardstatus string "%{= kG}[%{G}$USER@%H%{g}][%{w}%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{w}%D %d %M %Y %c:%s%{-}]"
