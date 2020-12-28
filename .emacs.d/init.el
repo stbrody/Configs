@@ -87,6 +87,11 @@
 
 (global-set-key "\C-z" 'undo)
 
+;JSON mode
+(add-hook 'json-mode-hook
+          (lambda ()
+            (make-local-variable 'js-indent-level)
+            (setq js-indent-level 2)))
 
 ;; Time how long it took to start up.
 (let ((the-time (current-time)))

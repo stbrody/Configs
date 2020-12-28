@@ -6,7 +6,9 @@
  '(case-fold-search t)
  '(current-language-environment "ASCII")
  '(global-font-lock-mode t nil (font-lock))
- '(package-selected-packages (quote (company list-packages-ext racer rust-mode)))
+ '(package-selected-packages
+   (quote
+    (json-mode company list-packages-ext racer rust-mode)))
  '(show-paren-mode t nil (paren))
  '(tab-stop-list
    (quote
