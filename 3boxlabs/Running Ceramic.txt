@@ -27,7 +27,7 @@ npm run startDev
 
 js-ceramic:
 
-node packages/cli/bin/ceramic.js daemon --ipfs-api=http://localhost:5011 --anchor-service-api=http://localhost:8081 --network=local
+node packages/cli/bin/ceramic.js daemon --ipfs-api=http://localhost:5011 --anchor-service-api=http://localhost:8081 --ethereum-rpc=http://localhost:7545 --network=local
 
 
 node packages/cli/bin/ceramic.js create tile --content '{ "foo": "bar" }'
