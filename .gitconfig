@@ -3,6 +3,7 @@
   br = branch
   st = status
   cp = commit -a -m "minor"
+  wip = commit -a -m "wip"
   pu = !git pull --rebase origin $(git merge-base HEAD origin)
   re = !git rebase -i $(git merge-base HEAD origin)
   md = pull origin develop
