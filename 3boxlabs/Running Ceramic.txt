@@ -22,12 +22,15 @@ edit .env
 - Change ETH_RPC_PORT=to port from ganache(7545)
 -ETH_WALLET_PK to first address private key from ganache (add 0x to beginning)
 
-npm run startDev
+rm -rf data && npm run startDev
 
 
 js-ceramic:
 
-node packages/cli/bin/ceramic.js daemon --ipfs-api=http://localhost:5011 --anchor-service-api=http://localhost:8081 --ethereum-rpc=http://localhost:7545 --network=local
+// local network
+ceramic daemon --ipfs-api=http://localhost:5011 --anchor-service-api=http://localhost:8081 --ethereum-rpc=http://localhost:7545 --network=local
 
+// dev-unstable network
+ceramic daemon --ipfs-api=http://localhost:5011 --anchor-service-api=https://cas-dev.3boxlabs.com --network=dev-unstable
 
-node packages/cli/bin/ceramic.js create tile --content '{ "foo": "bar" }'
+ceramic create tile --content '{ "foo": "bar" }'
