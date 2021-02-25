@@ -1,0 +1,194 @@
+Good question! There are lot of cases here due to how JS works.
+
+First, JS uses prototype inheritance, so when we create an Object, such as `const obj = {}`, this object will inherit from the `Object` prototype.
+So here we have the first difference between using the `in` operator and `Object.prototype.hasOwnProperty()`: using `in` goes down the prototype chain, while `hasOwnProperty()` does not, so we have:
+
+```js
+const obj = {}
+'toString' in obj // true
+obj.hasOwnProperty('toString') // false
+```
+
+It is also possible to create Objects with a specified prototype using `Object.create()`, including without any prototype with `Object.create(null)`. In that case, the `in` operator and `hasOwnProperty()` behave the same way.
+
+Now for the difference between using `in` or `hasOwnProperty()` and comparison to `undefined`, the difference is that `in` or `hasOwnProperty()` check the property only, while comparison operators check both the property and the value.
+
+So for example we have the following behavior:
+
+```js
+const obj = { foo: undefined }
+'foo' in obj // true
+obj.hasOwnProperty('foo') // true
+obj.foo === undefined // true
+```
+
+Now things differ if we use `delete` because the property itself is removed from the object:
+
+```js
+const obj = { foo: undefined }
+delete obj.foo
+'foo' in obj // false
+obj.hasOwnProperty('foo') // false
+obj.foo === undefined // true
+```
+
+Another thing to consider is that property access can have side-effects, for example:
+
+```js
+const obj = {
+  get foo() {
+    throw new Error('No foo for you')
+  },
+}
+'foo' in obj // true
+obj.hasOwnProperty('foo') // true
+obj.foo === undefined // Error thrown
+```
+
+In the case above, using `in` and `hasOwnProperty` are a safer way to check if a property exists without triggering side-effects. But what if the target is not even an Object?
+
+```js
+const obj = {
+  get foo() {
+    throw new Error('No foo for you')
+  },
+}
+
+const prx = new Proxy(obj, {
+  get(target, prop, receiver) {
+    return 'hello'
+  },
+})
+
+prx.foo // 'hello' - proxy does not call the proxied object
+prx.bar // 'hello' - anything goes in this proxy!
+'foo' in prx // true
+'bar' in prx // false - `in` correctly accesses the proxied object
+prx.hasOwnProperty('foo') // Error thrown (TypeError: prx.hasOwnProperty is not a function)
+```
+
+Here calling `prx.hasOwnProperty()` throws an error because `prx` is an instance of `Proxy` and not a regular object, so we can use the following safe workaround with `Object.prototype.hasOwnProperty.call()`:
+
+```js
+const obj = {
+  get foo() {
+    throw new Error('No foo for you')
+  },
+}
+
+const prx = new Proxy(obj, {
+  get(target, prop, receiver) {
+    return 'hello'
+  },
+})
+
+function hasProp(target, prop) {
+  return Object.prototype.hasOwnProperty.call(target, prop)
+}
+
+hasProp(prx, 'foo') // true
+hasProp(prx, 'bar') // false
+```
+
+Another specificity of JS is that it performs type inference in certain cases.
+
+For example `0` and `''` (empty string) are inferred as `false`, so we have the following behavior (the `!!` = "not not", it casts a value to the inferred boolean):
+
+```js
+!!'' // false
+!!'a' // true
+!!0 // false
+!!1 // true
+!!undefined // false
+!!null // false
+!![] // true
+!!{} // true
+```
+
+In JS, primitive values are referencially equal, so `'a' === 'a'` and `1 === 1`, but empty object and arrays are not, so `[] != []`.
+There are some exceptions for specific numbers, notably `Infinity !== Infinity` and `NaN !== NaN`.
+
+JS has 2 ways to compare values, using inference (`==`) or referencial equality (`===`), leading to the following behavior:
+
+```js
+'' == 0 // true - both as inferred to false
+'' === 0 // false - no referencial equlity
+```
+
+This is an important difference because when using `if` statements, inference is used, so we have:
+
+```js
+const name = ''
+if (name) {
+  // name is defined and not empty
+}
+if (name !== undefined) {
+  // name is defined but may be empty
+}
+if (!name) {
+  // name is undefined or defined but empty
+}
+```
+
+Another interesting aspect of JS is the difference between `null` and `undefined`, which in a way is "explicity nil" (`null`) vs "implicitly nil" (`undefined`). It's an important difference is cases such as the following:
+
+```js
+const foo = { baz: undefined }
+const bar = { baz: null }
+JSON.stringify(foo) // '{}'
+JSON.stringify(bar) // '{"baz":null}'
+
+function hello(who = 'world') {
+  return `hello ${who}`
+}
+hello('Bob') // 'hello Bob'
+hello() // 'hello world'
+hello(null) // 'hello null'
+```
+
+In most cases, it is recommended to use referencial equality for comparisons, to avoid these possible bugs in naive implementations:
+
+```js
+function badMultiplyBy(number) {
+  if (!number) {
+    number = 1
+  }
+  return function calculate(other) {
+    return number * other
+  }
+}
+
+function goodMultiplyBy(number) {
+  if (number == null) {
+    number = 1
+  }
+  return function calculate(other) {
+    return number * other
+  }
+}
+
+function bestMultiplyBy(number = 1) {
+  return function calculate(other) {
+    return number * other
+  }
+}
+```
+
+In the example above, calling `badMultiplyBy(0)` would create a function that always returns the provided number (multiply by `1`), instead of always returning `0`.
+
+One common exception though is due to the following behavior:
+
+```js
+null === undefined // false
+null == undefined // true
+```
+
+So it is common to use `if (foo == null)` to check if a value is nil (either explicitly or implicitly) but not "falsy" (`0`, `''`, etc.), for which we could use use `if (!foo)`.
+
+Finally, which one should we use? In most cases:
+
+- Use `in` if you want to check for an existing property on an unknown/external object. This is commonly used for browser features detection to avoid side-effects (like throwing errors), ex `if ('navigator' in window) { ... }`.
+- Use `Object.prototype.hasOwnProperty.call()` if you want to safely check the existence of a property in an object. As this is a common practice to use Objects as maps in JS (only supporting string keys though), it avoids false positives for properties part of the prototype chain, such as `toString`.
+- If you create your own "object map", you can use `const map = Object.create(null)` and then checking `if (map[anyKey] == null) { ... }` is safe and efficient AFAIK.
+- Use `obj.key == null` if you want to check the **value** itself exists, because this will go through the possible proxy and getter behaviors.
+- Use `obj.key === null` or `obj.key === undefined` to check for an explicit `null` or `undefined` value.

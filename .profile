@@ -9,16 +9,5 @@
 #umask 022
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# Set up buttons on Evoluent sideways mouse
-if xinput list | grep -q Evoluent ; then
-    idNum=$(xinput list | grep Evoluent|sed 's/.*id=\([0-9]*\).*/\1/')
-    xinput set-button-map $idNum 1 3 2 4 5 6 7 2 2
-fi
+/home/spencer/bin/xinput_set
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
