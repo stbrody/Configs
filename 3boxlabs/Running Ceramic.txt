@@ -1,6 +1,4 @@
-js-ipfs-ceramic:
-npm install
-npm run build
+cd packages/ipfs-daemon:
 npm start
 
 
@@ -28,7 +26,7 @@ rm -rf data && npm run startDev
 js-ceramic:
 
 // local network
-ceramic daemon --ipfs-api=http://localhost:5011 --anchor-service-api=http://localhost:8081 --ethereum-rpc=http://localhost:7545 --network=local
+ceramic daemon --ipfs-api=http://localhost:5011 --network=local
 
 // dev-unstable network
 ceramic daemon --ipfs-api=http://localhost:5011 --anchor-service-api=https://cas-dev.3boxlabs.com --network=dev-unstable
