@@ -9,5 +9,6 @@
 #umask 022
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-/home/spencer/bin/xinput_set
-
+if [[ $(uname) == 'Linux' ]]; then
+    /home/spencer/bin/xinput_set
+fi
