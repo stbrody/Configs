@@ -4,9 +4,9 @@
   st = status
   cp = commit -a -m "minor"
   wip = commit -a -m "wip"
-  pu = !git pull --rebase origin $(git merge-base HEAD origin)
+  pu = !git pull --rebase origin develop
   re = !git rebase -i $(git merge-base HEAD origin)
-  md = pull origin develop
+  md = merge origin develop
   cr = !git push origin $(git rev-parse --abbrev-ref HEAD)
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
@@ -26,5 +26,5 @@
 [push]
 	default = simple
 [user]
-	email = spencer@3box.io
+	email = spencer+github@3box.io
 	name = Spencer T Brody
