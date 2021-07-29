@@ -60,6 +60,8 @@ fi
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
+
+export PATH="$HOME/.local/bin:$PATH"
 #export PATH="$HOME/.local/bin:$PATH"
 
 # Put /usr/local/bin before /usr/bin
