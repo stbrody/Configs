@@ -43,12 +43,6 @@ if [ -f ~/.environment ]; then
     . ~/.environment
 fi
 
-# Load .profile
-if [ -f ~/.profile ]; then
-    . ~/.profile
-fi
-
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -93,6 +87,10 @@ PS1="\[`tput rev`\]\h\[`tput sgr0`\] \w \$ ";
 source $HOME/.git-completion.bash
 export PS1='[ \w$(__git_ps1 " (%s)") ] '
 #export PS1='[ \w $(vcprompt|sed "s/\\[\\([a-zA-Z0-9]*\\):]/(\\1)/"|sed "s/\\[\\([a-z]*\\):\\([a-z]*\\)\\]/(\\1:\\2)/")] '
+
+if [[ $(uname) == 'Linux' ]]; then
+    /home/spencer/bin/xinput_set
+fi
 
 #start screen
 if [ "$TERM" != "screen.xterm-256color" ] && [ "$TERM" != "screen" ]; then
