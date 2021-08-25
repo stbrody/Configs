@@ -1,0 +1,20 @@
+
+
+Go to ECS
+Go to Clusters on left-hand nav
+Go to ceramic-prod-cas
+Go to Tasks
+Click Run new Task
+
+
+
+Launch type fargate
+task def `ceramic-prod-cas-anchor`
+Platform version 1.4.0
+cluster: ceramic-prod-cas
+Cluster VPC - mouse over for ceramic-prod
+Subnets - select all 3 private ones
+security groups: select existing: 
+-- Descriptions "Controls access to EFS", Name "EFS"
+-- Description "VPC access to CAS anchor ports", Name "ceramic-prod-cas-api-XXXXXX"  - make sure to check Description b/c 2 w/ similar name exist
+

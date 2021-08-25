@@ -1,0 +1,10 @@
+cd ~/3box/unified-test-repo
+node --experimental-repl-await
+
+const CeramicClient = require('@ceramicnetwork/http-client').default
+const { Caip10Link } = require('@ceramicnetwork/stream-caip10-link')
+
+const ceramic = new CeramicClient()
+
+let account = "0x119c00dB25dbb106b8584B7F16DD7De8DeEA5270@eip155:1"
+let link = await Caip10Link.fromAccount(ceramic, account)
