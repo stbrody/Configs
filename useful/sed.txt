@@ -1,0 +1,9 @@
+# Sed script to do string replacement
+# linux:
+find . -type f -name "*.cpp" -not -name "*test*.cpp" -exec sed -i 's/catalogManager/catalogClient/g' {} \;
+
+# javascript example
+find . -type f -name "*.ts" -exec sed -i 's/streamSyncInterval/syncInterval/g' {} \;
+
+# osx:
+find . -type f -name "*.cpp" -not -name "*test*.cpp" -exec sed -i '' -e 's/catalogManager/catalogClient/g' {} \;
