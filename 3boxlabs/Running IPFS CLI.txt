@@ -6,7 +6,7 @@ const { convert } = require('blockcodec-to-ipld-format')
 
 const format = convert(dagJose)
 
-const ipfs = IpfsClient.create({url: 'http://localhost:5011', ipld: {formats: [format]}})
+let ipfs = IpfsClient.create({url: 'http://localhost:5011', ipld: {formats: [format]}})
 
 await ipfs.dag.get('bafyreifquadzka6f3f2a5qympjpaxyrgegdwrp57unxh2zhtqwi2cg54fe')
 
