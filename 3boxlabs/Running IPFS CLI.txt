@@ -1,12 +1,10 @@
 > node --experimental-repl-await
 
 const IpfsClient = require('ipfs-http-client')
-const dagJose = require('dag-jose').default
-const { convert } = require('blockcodec-to-ipld-format')
+const dagJose = require('dag-jose')
 
-const format = convert(dagJose)
 
-let ipfs = IpfsClient.create({url: 'http://localhost:5011', ipld: {formats: [format]}})
+let ipfs = IpfsClient.create({url: 'http://localhost:5001', ipld: {codecs: [dagJose]}})
 
 await ipfs.dag.get('bafyreifquadzka6f3f2a5qympjpaxyrgegdwrp57unxh2zhtqwi2cg54fe')
 
