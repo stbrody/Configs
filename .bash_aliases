@@ -9,6 +9,7 @@ alias cargo='time cargo'
 alias npm='time npm'
 alias ceramic='time node packages/cli/bin/ceramic.js'
 alias glaze='time node packages/cli/bin/run'
+alias ipfs='time ipfs'
 
 alias fuck='eval $(thefuck $(fc -ln -1))'
 
