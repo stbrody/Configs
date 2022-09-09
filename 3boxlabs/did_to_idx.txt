@@ -1,0 +1,14 @@
+curl https://gateway.ceramic.network/api/v0/streams -X POST -d '{
+      "type": 0,
+      "genesis": {
+        "header": {
+          "family": "IDX",
+          "controllers": ["did:pkh:eip155:1:0x85ff01cff157199527528788ec4ea6336615c989"]
+        }
+      },
+      "opts": {
+        "pin": true,
+        "sync": true,
+        "anchor": false
+      }
+    }' -H "Content-Type: application/json" | jq
