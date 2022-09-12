@@ -1,0 +1,8 @@
+const {toString, fromString} = await import('uint8arrays')
+
+function base64urlToJSON(s) {  return JSON.parse(toString(fromString(s, 'base64url'))) }
+
+// Pass in the string from the 'protected' field of the signed commit header
+let signature = 'eyJhbGciOiJFZERTQSIsImNhcCI6ImlwZnM6Ly9iYWZ5cmVpZzNsd2UzeGYycW1pcDZyYWRuN2l1YXJzN2c0eHIya3RyZ294eXJ5eDY1Y3dlNGpwYm1ueSIsImtpZCI6ImRpZDprZXk6ejZNa3dHV3gxSDJQWGhLUlN1d2pIR3VLUm9ud0ZxaVR1eGNuOWJhSm1NZ0JIU2RQI3o2TWt3R1d4MUgyUFhoS1JTdXdqSEd1S1JvbndGcWlUdXhjbjliYUptTWdCSFNkUCJ9'
+
+base64urlToJSON(signature)
