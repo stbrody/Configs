@@ -1,1 +1,8 @@
 const {StreamID, CommitID} = await import('@ceramicnetwork/streamid')
+
+ s = StreamID.fromString('k2t6wyfsu4pfznmyljas6jo9pa9vhogneopbbzcxuyj15r52uwscq6nqzhf9ih')
+ StreamID(k2t6wyfsu4pfznmyljas6jo9pa9vhogneopbbzcxuyj15r52uwscq6nqzhf9ih)
+
+c = CommitID.make(s, 'bagcqcerawddeh7ux6jcsfzpu53dmaolfardon22bpl3ri3duafs6dgs75iwa')
+
+
