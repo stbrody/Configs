@@ -26,9 +26,9 @@ rm -rf data && npm run startDev
 js-ceramic:
 
 // local network
-ceramic daemon --ipfs-api=http://localhost:5011 --network=local
+ceramic daemon --ipfs-api=http://localhost:5001 --network=local
 
 // dev-unstable network
-ceramic daemon --ipfs-api=http://localhost:5011 --anchor-service-api=https://cas-dev.3boxlabs.com --network=dev-unstable
+ceramic daemon --ipfs-api=http://localhost:5001 --anchor-service-api=https://cas-dev.3boxlabs.com --network=dev-unstable
 
 ceramic create tile --content '{ "foo": "bar" }'
