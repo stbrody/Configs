@@ -8,6 +8,8 @@ fi
 alias cargo='time cargo'
 alias npm='time npm'
 alias npmcib='npm run clean && npm i && npm run build'
+alias npmib='npm i && npm run build'
+alias npmb='npm run build'
 alias ceramic='time node packages/cli/bin/ceramic.js'
 alias composedb='time node packages/cli/bin/run.js'
 alias glaze='time node packages/cli/bin/run'
