@@ -11,3 +11,9 @@ if xinput list | grep -q "MX Vertical Mouse" ; then
     idNum=$(xinput list | grep "MX Vertical Mouse"|sed 's/.*id=\([0-9]*\).*/\1/')
     xinput set-button-map $idNum 1 2 3 4 5 6 7 2 2
 fi
+
+# Set up buttons on Logitech Trackball mouse
+if xinput list | grep -q "Trackball" ; then
+    idNum=$(xinput list | grep "Trackball"|sed 's/.*id=\([0-9]*\).*/\1/')
+    xinput set-button-map $idNum 1 2 3 4 n5 6 7 2 2
+fi
