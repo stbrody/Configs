@@ -1,2 +1,5 @@
 export EDITOR=em
 export LESS='-Mr'
+export BASH_SILENCE_DEPRECATION_WARNING=1
+unset COLORTERM
+
