@@ -61,6 +61,9 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
+
+export PATH="$PATH:$HOME/.foundry/bin"
+
 #export PATH="$HOME/.local/bin:$PATH"
 
 # Put /usr/local/bin before /usr/bin
