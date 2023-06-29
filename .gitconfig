@@ -16,7 +16,6 @@
   status = auto
 
 [branch]
-  autosetuprebase = always
   autosetupmerge = true
 
 [core]
