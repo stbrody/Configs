@@ -55,26 +55,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
-export PATH="$HOME/.local/bin:$PATH"
-
-export PATH="$PATH:$HOME/.foundry/bin"
-
-#export PATH="$HOME/.local/bin:$PATH"
-
-# Put /usr/local/bin before /usr/bin
-#export PATH="/usr/local/bin:$PATH"
-
-# Add Rust's cargo bin to PATH
-#export PATH="$HOME/.cargo/bin:$PATH"
-
-# Add brew-installed ruby to path before system ruby
-#export PATH="/usr/local/opt/ruby/bin:$PATH"
-
 # Set the number of threads for scons to use from the number of cores on the machine
 if [[ $(uname) == 'Linux' ]]; then
     _OS='Linux'
@@ -125,3 +105,27 @@ function repeat(){
         eval ${*:2}
     done
 }
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+export PATH="$HOME/.local/bin:$PATH"
+
+export PATH="$PATH:$HOME/.foundry/bin"
+
+export PNPM_HOME="/home/spencer/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+#export PATH="$HOME/.local/bin:$PATH"
+
+# Put /usr/local/bin before /usr/bin
+#export PATH="/usr/local/bin:$PATH"
+
+# Add Rust's cargo bin to PATH
+#export PATH="$HOME/.cargo/bin:$PATH"
+
+# Add brew-installed ruby to path before system ruby
+#export PATH="/usr/local/opt/ruby/bin:$PATH"
+
