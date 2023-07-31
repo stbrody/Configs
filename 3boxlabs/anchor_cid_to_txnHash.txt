@@ -1,0 +1,9 @@
+// Can use CID Inspector and take the hex digest: https://cid.ipfs.tech/#bagjqcgzadkkarrbgy6eryzjm2c6oy5x647zwvedqsj7whmucnmgx3ijxgl2a
+
+
+// Or to do manually:
+anchorCID = CID.parse('bagjqcgzadkkarrbgy6eryzjm2c6oy5x647zwvedqsj7whmucnmgx3ijxgl2a')
+
+d = multihash.decode(anchorCID.multihash.bytes)
+
+txnHash = '0x' + uint8arrays.toString(d.digest, 'base16')
