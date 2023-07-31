@@ -124,8 +124,9 @@ export PATH="$PNPM_HOME:$PATH"
 #export PATH="/usr/local/bin:$PATH"
 
 # Add Rust's cargo bin to PATH
-#export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"
 
 # Add brew-installed ruby to path before system ruby
 #export PATH="/usr/local/opt/ruby/bin:$PATH"
 
+# source /Users/spencer/.docker/init-bash.sh || true # Added by Docker Desktop
