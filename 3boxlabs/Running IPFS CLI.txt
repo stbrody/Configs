@@ -1,10 +1,8 @@
 > node --experimental-repl-await
 
-const IpfsClient = require('ipfs-http-client')
-const dagJose = require('dag-jose')
 
-
-let ipfs = IpfsClient.create({url: 'http://localhost:5001', ipld: {codecs: [dagJose]}})
+IpfsClient = await import('ipfs-http-client')
+ipfs = await IpfsClient.create({url:'http://localhost:5001'})
 
 await ipfs.dag.get('bafyreifquadzka6f3f2a5qympjpaxyrgegdwrp57unxh2zhtqwi2cg54fe')
 
