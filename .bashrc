@@ -129,4 +129,6 @@ export PATH="$PNPM_HOME:$PATH"
 # Add brew-installed ruby to path before system ruby
 #export PATH="/usr/local/opt/ruby/bin:$PATH"
 
+export PATH="$PATH:/usr/local/go/bin"
+
 # source /Users/spencer/.docker/init-bash.sh || true # Added by Docker Desktop
