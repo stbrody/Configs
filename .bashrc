@@ -130,5 +130,6 @@ export PATH="$PNPM_HOME:$PATH"
 #export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 # source /Users/spencer/.docker/init-bash.sh || true # Added by Docker Desktop
