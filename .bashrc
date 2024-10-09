@@ -133,3 +133,9 @@ export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
 
 # source /Users/spencer/.docker/init-bash.sh || true # Added by Docker Desktop
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/spencer/google-cloud-sdk/path.bash.inc' ]; then . '/Users/spencer/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/spencer/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/spencer/google-cloud-sdk/completion.bash.inc'; fi
