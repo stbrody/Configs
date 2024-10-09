@@ -4,7 +4,8 @@
   st = status
   cp = commit -a -m "minor"
   wip = commit -a -m "wip"
-  pu = !git pull --rebase origin develop
+  pud = !git pull --rebase origin develop
+  pum = !git pull --rebase origin main
   re = !git rebase -i $(git merge-base HEAD origin)
   md = merge origin/develop
   cr = !git push origin $(git rev-parse --abbrev-ref HEAD)
