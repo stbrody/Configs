@@ -1,0 +1,17 @@
+# Get block by hash
+curl -s -H 'accept: application/json' 'http://localhost:26657/block?hash=50d782d05eae408e58776d628c3e4105f7e647631023a1aa155e14fbc2268900'|jq
+
+# Get txn by hash
+curl -s -H 'accept: application/json' 'http://localhost:26657/tx?hash=0x07C9F0213D7A7C77B455B4BE1F78DC4861F3110EE2D32C5D526B1CCE0D0BA9C6'|jq
+
+export NETWORK=devnet
+export PRIVATE_KEY=1c323d494d1d069fe4c891350a1ec691c4216c17418a0cb3c7533b143bd2b812
+
+
+# Generate PRIVATE_KEY for one of the built-in accounts
+fendermint key into-eth --secret-key ./bob.sk --name bob_eth
+
+
+# Send eth to a newly created account to make it actually usable.
+# The 0x account at the end is the account we're trying to make usable
+cast send --value 5ether --private-key $PRIVATE_KEY --rpc-url http://localhost:8545 0x4fd25640fcf19e54efe99e804fee4bb963a14244
