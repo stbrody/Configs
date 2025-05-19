@@ -85,6 +85,9 @@ if [ "$TERM" != "screen.xterm-256color" ] && [ "$TERM" != "screen" ]; then
      screen
 fi
 
+#start nushell
+#nu
+
 # python include path
 #if [ "$_OS" = "OSX" ]; then
 #    export PYTHONPATH='/usr/local/lib/python2.7/site-packages'
