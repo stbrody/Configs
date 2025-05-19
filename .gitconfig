@@ -28,3 +28,8 @@
 [user]
 	email = spencer+github@3box.io
 	name = Spencer T Brody
+	signingkey = /Users/spencer/.ssh/id_rsa.pub
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
