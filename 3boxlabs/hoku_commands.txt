@@ -14,4 +14,4 @@ fendermint key into-eth --secret-key ./bob.sk --name bob_eth
 
 # Send eth to a newly created account to make it actually usable.
 # The 0x account at the end is the account we're trying to make usable
-cast send --value 5ether --private-key $PRIVATE_KEY --rpc-url http://localhost:8545 0x4fd25640fcf19e54efe99e804fee4bb963a14244
+cast send --value 5ether --private-key $HOKU_PRIVATE_KEY --rpc-url http://localhost:8545 0x4fd25640fcf19e54efe99e804fee4bb963a14244
