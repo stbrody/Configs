@@ -26,7 +26,7 @@
 [push]
 	default = simple
 [user]
-	email = spencer+github@3box.io
+	email = spencer+github@textile.io
 	name = Spencer T Brody
 	signingkey = /Users/spencer/.ssh/id_rsa.pub
 [commit]
