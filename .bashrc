@@ -81,7 +81,7 @@ if [[ $(uname) == 'Linux' ]]; then
 fi
 
 #start screen
-if [ "$TERM" != "screen.xterm-256color" ] && [ "$TERM" != "screen" ]; then
+if [ "$TERM" != "screen.xterm-256color" ] && [ "$TERM" != "screen" ] && [[ -z "$CURSOR_TRACE_ID" ]]; then
      screen
 fi
 
