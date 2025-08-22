@@ -5,6 +5,10 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+if [[ -n "${CLAUDECODE}" ]]; then
+  return
+fi
+
 # Add USER_HOME so my setup scripts can look there to see what to treat
 # as the home dir
 export USER_HOME="/Users/spencer"
@@ -14,7 +18,7 @@ export USER_HOME="/Users/spencer"
 HISTCONTROL=ignoredups:ignorespace
 
 # append to the history file, don't overwrite it
-shopt -s histappend
+#shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000000
@@ -73,17 +77,25 @@ PS1="\[`tput rev`\]\h\[`tput sgr0`\] \w \$ ";
 
 # git stuff
 source $HOME/.git-completion.bash
-export PS1='[ \w$(__git_ps1 " (%s)") ] '
-#export PS1='[ \w $(vcprompt|sed "s/\\[\\([a-zA-Z0-9]*\\):]/(\\1)/"|sed "s/\\[\\([a-z]*\\):\\([a-z]*\\)\\]/(\\1:\\2)/")] '
 
 if [[ $(uname) == 'Linux' ]]; then
     /home/spencer/bin/xinput_set
 fi
 
 #start screen
-if [ "$TERM" != "screen.xterm-256color" ] && [ "$TERM" != "screen" ] && [[ -z "$CURSOR_TRACE_ID" ]]; then
+if [ "$TERM" != "screen.xterm-256color" ] && [ "$TERM" != "screen" ] && [[ -z "$CURSOR_TRACE_ID" ]] && [[ -z "${CLAUDECODE}" ]]; then
      screen
 fi
+
+# Set prompt
+if [ "$TERM" != "screen.xterm-256color" ] && [ "$TERM" != "screen" ];
+then
+    export PS1='[ %~ ] '
+else
+    export PS1='[ \w$(__git_ps1 " (%s)") ] '
+fi
+
+
 
 #start nushell
 #nu
