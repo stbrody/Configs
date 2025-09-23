@@ -1,0 +1,5 @@
+Controllers should be thin wrappers around Service class functions.  Controllers should handle serializing/deserializing the request/response but that's about it.  All the business logic should be handled in a single function call to a Service class that the controller delegates to.
+
+When designing an implemention plan for a refactoring to move business logic from a function in an controller down into a service, please keep in mind that there should be no behavior changes and we should minimize changes to logic and code structure.  As much as possible, these refactorings should be simple code motion - just moving the same code from one place to a different place.  If there are places where things will need to change either for correctness or code simplicity and maintainability, please call it out explicitly.
+
+Now, can you please propose an implementation plan (don't change any code yet) to refactor AdminController.setupAdmin?
